@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3rbtn8vtcgbi"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_dxmq3"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_dxmq3")
+
+[node name="Player_Collisions" type="CollisionPolygon2D" parent="."]
+position = Vector2(-32, 80)
+scale = Vector2(5.34375, 20.6992)
+polygon = PackedVector2Array(5.61403, -4.92773, 2.24561, -2.31893, 8.98246, -2.31893)
+
+[node name="Player_Polygon" type="Polygon2D" parent="."]
+position = Vector2(-1.99998, 6.99325)
+scale = Vector2(1.56445, 1.59504)
+texture_scale = Vector2(0, 0)
+polygon = PackedVector2Array(-11.5056, 16, 11.5056, 16, -1.39475e-05, -20.0579)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
