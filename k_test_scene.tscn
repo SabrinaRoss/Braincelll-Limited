@@ -4,39 +4,40 @@
 [ext_resource type="SpriteFrames" uid="uid://c5ch466t25u5v" path="res://res/gobbo.aseprite" id="1_aklca"]
 [ext_resource type="Texture2D" uid="uid://eavwwc3caagn" path="res://res/crate.png" id="3_tqbtn"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4isbo"]
+size = Vector2(16, 16)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he64g"]
 radius = 43.0
 height = 278.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4isbo"]
-size = Vector2(16, 16)
-
 [node name="Scene" type="Node2D"]
 
-[node name="Player" type="Area2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(496, 238)
+gravity_scale = 0.0
+linear_damp = 1.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_4isbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("3_tqbtn")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(137, 141)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_55y6a")
-metadata/_edit_group_ = true
 
-[node name="GoblinSprite" type="AnimatedSprite2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-10, -3)
+shape = SubResource("CapsuleShape2D_he64g")
+
+[node name="GoblinSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 scale = Vector2(20, 20)
 sprite_frames = ExtResource("1_aklca")
 speed_scale = 5.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-10, -3)
-shape = SubResource("CapsuleShape2D_he64g")
-
-[node name="PushableBox" type="Area2D" parent="."]
-position = Vector2(496, 238)
-scale = Vector2(10, 10)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PushableBox"]
-shape = SubResource("RectangleShape2D_4isbo")
-
-[node name="Sprite2D" type="Sprite2D" parent="PushableBox"]
-texture_filter = 1
-texture = ExtResource("3_tqbtn")
