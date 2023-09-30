@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvohefbvr2nd2"]
+[gd_scene load_steps=3 format=3 uid="uid://bvohefbvr2nd2"]
 
 [ext_resource type="Script" path="res://Scene/timer_test.gd" id="1_26mhq"]
+[ext_resource type="Script" path="res://Scene/Popup.gd" id="2_08svu"]
 
 [node name="timer_test" type="Node2D"]
 script = ExtResource("1_26mhq")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="Popup" type="Popup" parent="."]
 size = Vector2i(1920, 1080)
-visible = true
+script = ExtResource("2_08svu")
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -25,7 +25,15 @@ tooltip_text = "adsfasdf"
 
 [node name="TextEdit" type="TextEdit" parent="Popup/MarginContainer"]
 layout_mode = 2
-text = "Hello there mother fuckers"
+text = "Hello there mother fuckers
+
+
+RAAAAAAAAAAAAAAAA"
 editable = false
 
+[node name="popup_timer" type="Timer" parent="Popup"]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
+[connection signal="timeout" from="Popup/popup_timer" to="Popup" method="_on_popup_timer_timeout"]
