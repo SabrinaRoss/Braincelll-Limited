@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://dbylsrvii3lgl"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://b3rbtn8vtcgbi"]
+>>>>>>> main
 
 [ext_resource type="Script" path="res://Player.gd" id="1_dxmq3"]
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://b7ifj5p22k745"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://cjmeoajhsh3w1"]
+>>>>>>> main
 
 [ext_resource type="PackedScene" uid="uid://o802pmcs6y0u" path="res://Player/Player.tscn" id="1_0veai"]
 
