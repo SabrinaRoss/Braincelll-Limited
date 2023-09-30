@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7ifj5p22k745"]
+
+[ext_resource type="PackedScene" uid="uid://o802pmcs6y0u" path="res://Player/Player.tscn" id="1_0veai"]
+
+[node name="Border" type="Area2D"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 1160, 3184, 1144, 3176, 24, 2057.89, 15.508, 16, 0, 16, 16, 3168, 24, 3178.56, 1143.04, 3184, 1720, 24, 1720, 16, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+polygon = PackedVector2Array(0, 0, 0, 1146.45, 0, 1744, 3208, 1744, 3216, -8, 16, 0, 16, 16, 3184, 24, 3192, 1720, 16, 1720, 16, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_0veai")]
+position = Vector2(1064, 576)

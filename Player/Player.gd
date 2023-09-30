@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 400
+const speed = 600
 const moove_power = 100
 
 const acceleration = 125
