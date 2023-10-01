@@ -11,6 +11,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Popup" type="Popup" parent="."]
+initial_position = 5
 size = Vector2i(1920, 1080)
 script = ExtResource("2_08svu")
 
@@ -32,6 +33,7 @@ RAAAAAAAAAAAAAAAA"
 editable = false
 
 [node name="popup_timer" type="Timer" parent="Popup"]
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
