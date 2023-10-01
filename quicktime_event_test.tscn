@@ -50,7 +50,7 @@ position = Vector2(33, 10)
 script = ExtResource("1_nw6ge")
 
 [node name="Timer" type="Timer" parent="MarginContainer/MarginContainer/Quicktime Event Test"]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="MarginContainer/MarginContainer/Quicktime Event Test/Timer" to="MarginContainer/MarginContainer/Quicktime Event Test" method="_qte_timeout"]

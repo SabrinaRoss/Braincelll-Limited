@@ -1,8 +1,10 @@
 extends Node2D
 
+@onready var first_label = get_node("../../../MarginContainer/Label")
+
+
 var is_qte_active = false
 var qte_key = KEY_A
-
 
 var qte_key_list = [
 	[KEY_A],
@@ -12,6 +14,10 @@ var qte_key_list = [
 
 func _ready():
 	print("ready")
+	print("===========")
+	print(first_label)
+	print(first_label.text)
+	print("============")
 	$Timer.start() # Get ready to mash the buttonsssssss
 
 	
@@ -19,8 +25,8 @@ func _ready():
 	_qte_start()
 	
 
-#func _process(delta):
-#	time.text = "Time: " + str($Timer.get_time_left())
+func _process(delta):
+	first_label.text = "Time: " + str(snapped($Timer.get_time_left(), 0.01))
 	
 
 func _qte_start():
@@ -52,7 +58,7 @@ func _qte_success():
 	_reset_timer()
 	
 func _reset_timer():
-	$Timer.stop()
+	$Timer.paused = true # Figure out if pausing timer is possible instead of stopping it... stopping it resets it to 0
 	print("timer resets after QTE event")
 
 
