@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0a78c22kjuc6"]
+[gd_scene load_steps=12 format=3 uid="uid://d0a78c22kjuc6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_55y6a"]
 [ext_resource type="SpriteFrames" uid="uid://c5ch466t25u5v" path="res://res/gobbo.aseprite" id="1_aklca"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://eavwwc3caagn" path="res://res/crate.png" id="3_tqbtn"]
 [ext_resource type="Script" path="res://PressurePlate.gd" id="4_pp18d"]
 [ext_resource type="SpriteFrames" uid="uid://0s3v0t8nnfu3" path="res://res/pressureplate.aseprite" id="5_vc2i7"]
+[ext_resource type="SpriteFrames" uid="uid://kreqdonl712k" path="res://res/lever.aseprite" id="8_xockl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4isbo"]
 size = Vector2(8.99999, 8.99999)
@@ -22,6 +23,7 @@ size = Vector2(10.1, 9.5)
 
 [node name="Crate" type="RigidBody2D" parent="."]
 position = Vector2(496, 238)
+collision_layer = 3
 gravity_scale = 0.0
 linear_damp = 1.1
 metadata/_edit_group_ = true
@@ -71,8 +73,11 @@ sprite_frames = ExtResource("1_aklca")
 speed_scale = 5.0
 
 [node name="PressurePlate" type="Area2D" parent="."]
+z_index = -1
 position = Vector2(206, 233)
 scale = Vector2(10, 10)
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("4_pp18d")
 metadata/_edit_group_ = true
 
@@ -84,6 +89,25 @@ sprite_frames = ExtResource("5_vc2i7")
 position = Vector2(0.250002, 0.350002)
 shape = SubResource("RectangleShape2D_w2xyt")
 
+[node name="Lever" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(800, 422)
+scale = Vector2(10, 10)
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("4_pp18d")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lever"]
+texture_filter = 1
+sprite_frames = ExtResource("8_xockl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever"]
+position = Vector2(0.250002, 0.350002)
+shape = SubResource("RectangleShape2D_w2xyt")
+
 [connection signal="body_entered" from="Collectable" to="Collectable" method="_on_body_entered"]
 [connection signal="body_entered" from="PressurePlate" to="PressurePlate" method="_on_body_entered"]
 [connection signal="body_exited" from="PressurePlate" to="PressurePlate" method="_on_body_exited"]
+[connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
+[connection signal="body_exited" from="Lever" to="Lever" method="_on_body_exited"]
