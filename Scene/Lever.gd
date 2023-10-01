@@ -15,6 +15,7 @@ func _process(delta):
 	# Check ofr overlapping bodies
 	# Must do here and not in _on_body_entered becuase we might already be overlapping
 	for body in get_overlapping_bodies():
+		print("holding", $ItemHolder.held_collectables.size())
 		if $ItemHolder.held_collectables.find(body) != -1:
 			print("Despawn item")
 			$ItemHolder.held_collectables.remove_at($ItemHolder.held_collectables.find(body))
@@ -39,13 +40,14 @@ func _on_body_entered(body):
 			print("satisfied")
 			if consumes_items:
 				for i_body in bodies:
+					print("now go to lever")
 					# Remove bodies from player held items
 					body.get_node("ItemHolder").held_collectables.remove_at(body.get_node("ItemHolder").held_collectables.find(i_body))
 					# Set target to self
 					i_body.target = self
 					i_body.can_pick_up = false
 					# Add to our held items (removal queue)
-					body.get_node("ItemHolder").held_collectables.push_back(i_body)
+					$ItemHolder.held_collectables.push_back(i_body)
 			# Spawn cool particles
 			$CPUParticles2D.emitting = true
 			$AnimatedSprite2D.frame = 1
