@@ -1,0 +1,168 @@
+[gd_scene load_steps=3 format=3 uid="uid://cttx3uguwns7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m48a"]
+size = Vector2(49, 728)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lbcw"]
+size = Vector2(13905, 28)
+
+[node name="Corridor" type="Area2D"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(13768, 312)
+shape = SubResource("RectangleShape2D_0m48a")
+
+[node name="Corridor_Floor" type="ColorRect" parent="."]
+offset_right = 13576.0
+offset_bottom = 512.0
+color = Color(0.847059, 0.639216, 0.639216, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 13776
+limit_bottom = 208
+
+[node name="Corridor_Stripe" type="ColorRect" parent="."]
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 720.0
+offset_right = 896.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Corridor_Stripe/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 608.0
+offset_right = 784.0
+offset_bottom = 512.0
+color = Color(1, 0.780392, 0.992157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6935, -12)
+shape = SubResource("RectangleShape2D_1lbcw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(6943.5, 526)
+shape = SubResource("RectangleShape2D_1lbcw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-24.5, 268)
+shape = SubResource("RectangleShape2D_0m48a")
