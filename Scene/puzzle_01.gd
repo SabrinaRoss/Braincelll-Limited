@@ -12,7 +12,7 @@ func _process(delta):
 		$Door.open()
 	else:
 		$Door.close()
-		
+	
 	if $Lever.state:
 		$DoorPlaceholder.emitting = true
 	else:
