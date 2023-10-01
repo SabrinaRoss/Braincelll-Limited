@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://tae4edkpunok"]
+
+[ext_resource type="Script" path="res://Bullet.gd" id="1_85cf6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tigsk"]
+radius = 6.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_85cf6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_tigsk")
+
+[connection signal="draw" from="StaticBody2D/CollisionPolygon2D" to="." method="_on_collision_polygon_2d_draw"]

@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cn0qy3lgp5wb7"]
+[gd_scene load_steps=4 format=3 uid="uid://cn0qy3lgp5wb7"]
+
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="1_jy7rs"]
+[ext_resource type="Script" path="res://Scene/main.gd" id="1_mj0kn"]
+[ext_resource type="PackedScene" uid="uid://tae4edkpunok" path="res://Bullet.tscn" id="2_qfl0n"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_mj0kn")
+bullet = ExtResource("2_qfl0n")
+
+[node name="Area" type="StaticBody2D" parent="."]
+disable_mode = 1
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Area"]
+offset_right = 720.0
+offset_bottom = 480.0
+scale = Vector2(0.996579, 1)
+color = Color(0.898039, 0.898039, 0.898039, 0.807843)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 720, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("1_jy7rs")]
+position = Vector2(352, 248)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Bullet" parent="." instance=ExtResource("2_qfl0n")]
+position = Vector2(160, 208)

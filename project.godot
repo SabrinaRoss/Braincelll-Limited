@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Braincell-Limited"
-run/main_scene="res://Player/Player.tscn"
+run/main_scene="res://Scene/start_scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+run/size/mode=1
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=720
+window/size/viewport_height=480
 window/subwindows/embed_subwindows=false
 
 [input]
