@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://da8bibioy23rb"]
+
+[ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_fjmv2"]
+[ext_resource type="Script" path="res://Scene/puzzle_01.gd" id="1_o4eh8"]
+[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Scene/lever.tscn" id="2_yyd0s"]
+[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Scene/collectable.tscn" id="3_40tsw"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="4_vxppo"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="5_5k3um"]
+[ext_resource type="Texture2D" uid="uid://bhsiripn4x0vf" path="res://Resources/wall.aseprite" id="6_gkes8"]
+[ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="8_b63lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqi3w"]
+size = Vector2(251, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v308p"]
+size = Vector2(63, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8pvqk"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rjkw6"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k31x5"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vsecp"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[node name="Puzzle01" type="Node2D"]
+script = ExtResource("1_o4eh8")
+
+[node name="Player" parent="." instance=ExtResource("1_fjmv2")]
+position = Vector2(101, 128)
+collision_layer = 2
+
+[node name="Lever" parent="." instance=ExtResource("2_yyd0s")]
+position = Vector2(1039, 70)
+collision_layer = 15
+collision_mask = 15
+
+[node name="Collectable" parent="." instance=ExtResource("3_40tsw")]
+position = Vector2(167, 540)
+collision_layer = 8
+collision_mask = 7
+
+[node name="Crate" parent="." instance=ExtResource("4_vxppo")]
+position = Vector2(1046, 335)
+collision_layer = 8
+collision_mask = 7
+
+[node name="PressurePlate" parent="." instance=ExtResource("5_5k3um")]
+position = Vector2(1051, 554)
+collision_layer = 1
+collision_mask = 15
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(240, 371)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("RectangleShape2D_dqi3w")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("6_gkes8")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("6_gkes8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_v308p")
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="bottom" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_8pvqk")
+
+[node name="top" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_rjkw6")
+
+[node name="left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_k31x5")
+
+[node name="right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_vsecp")
+
+[node name="DoorPlaceholder" type="CPUParticles2D" parent="."]
+position = Vector2(219, 123)
+emitting = false
+texture = ExtResource("8_b63lk")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0

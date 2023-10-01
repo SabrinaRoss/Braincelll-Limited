@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bey7yq32sgm2n"]
+
+[ext_resource type="Script" path="res://Scene/puzzle_00.gd" id="1_1g8g5"]
+[ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_imp06"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="2_ggrkt"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="3_krdy4"]
+[ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="5_b6e50"]
+
+[node name="Puzzle_00" type="Node2D"]
+script = ExtResource("1_1g8g5")
+
+[node name="Player" parent="." instance=ExtResource("1_imp06")]
+position = Vector2(334, 213)
+
+[node name="Label" type="Label" parent="Player"]
+texture_filter = 1
+offset_left = -172.0
+offset_top = -296.0
+offset_right = -64.0
+offset_bottom = -244.0
+scale = Vector2(3, 3)
+text = "I must be free 
+of this room..."
+
+[node name="Crate" parent="." instance=ExtResource("2_ggrkt")]
+position = Vector2(495, 544)
+
+[node name="PressurePlate" parent="." instance=ExtResource("3_krdy4")]
+position = Vector2(936, 550)
+collision_mask = 3
+
+[node name="DoorPlaceholder" type="CPUParticles2D" parent="."]
+position = Vector2(830, 207)
+emitting = false
+texture = ExtResource("5_b6e50")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0

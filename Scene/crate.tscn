@@ -6,7 +6,7 @@
 size = Vector2(8.99999, 8.99999)
 
 [node name="Crate" type="RigidBody2D"]
-position = Vector2(496, 238)
+position = Vector2(-1, 0)
 collision_layer = 3
 gravity_scale = 0.0
 linear_damp = 10.282

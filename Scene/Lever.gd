@@ -8,6 +8,8 @@ var collectable_leniance = 1.0
 var collectable_forcefulness = 2
 var held_collectables = []
 
+var state = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -26,8 +28,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Players"):
-		var satisfied = true
-		
 		# Get all held item names
 		var held_item_names = []
 		for item in body.held_collectables:
@@ -42,7 +42,6 @@ func _on_body_entered(body):
 		
 		if bodies.size() == wants_items.size():
 			print("satisfied")
-			$AnimatedSprite2D.frame = 1
 			if consumes_items:
 				for i_body in bodies:
 					# Remove bodies from player held items
@@ -54,6 +53,8 @@ func _on_body_entered(body):
 					held_collectables.push_back(i_body)
 			# Spawn cool particles
 			$CPUParticles2D.emitting = true
+			$AnimatedSprite2D.frame = 1
+			state = true
 		else:
 			print("not satisfied")
 
