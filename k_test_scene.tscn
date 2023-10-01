@@ -64,3 +64,4 @@ position = Vector2(0.250002, 0.350002)
 shape = SubResource("RectangleShape2D_w2xyt")
 
 [connection signal="body_entered" from="PressurePlate" to="PressurePlate" method="_on_body_entered"]
+[connection signal="body_exited" from="PressurePlate" to="PressurePlate" method="_on_body_exited"]
