@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://da8bibioy23rb"]
+[gd_scene load_steps=18 format=3 uid="uid://da8bibioy23rb"]
 
 [ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_fjmv2"]
 [ext_resource type="Script" path="res://Scene/puzzle_01.gd" id="1_o4eh8"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="5_5k3um"]
 [ext_resource type="Texture2D" uid="uid://bhsiripn4x0vf" path="res://Resources/wall.aseprite" id="6_gkes8"]
 [ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="8_b63lk"]
+[ext_resource type="Script" path="res://Scene/Door.gd" id="9_od3dt"]
+[ext_resource type="SpriteFrames" uid="uid://l1afpisfo5gp" path="res://Resources/door.aseprite" id="10_wrl81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqi3w"]
 size = Vector2(251, 64)
@@ -27,6 +29,9 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vsecp"]
 normal = Vector2(-1, 0)
 distance = -1154.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jf4oa"]
+size = Vector2(20, 157)
 
 [node name="Puzzle01" type="Node2D"]
 script = ExtResource("1_o4eh8")
@@ -106,3 +111,17 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(464, 523)
+script = ExtResource("9_od3dt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_jf4oa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+position = Vector2(-26.5, -8.99999)
+scale = Vector2(7.0625, 9.875)
+sprite_frames = ExtResource("10_wrl81")
