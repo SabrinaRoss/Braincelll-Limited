@@ -1,6 +1,6 @@
 extends Node2D
 
-var bullet = preload("res://Bullet.tscn")
+var bullet = preload("res://Bullet/Bullet.tscn")
 var remove_track = 1
 
 func _ready(): 

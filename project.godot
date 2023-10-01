@@ -18,8 +18,8 @@ run/size/mode=1
 
 [autoload]
 
-LivesManager="*res://Lives_manager.gd"
-BulletNum="*res://bullet_num.gd"
+LivesManager="*res://Health/Lives_manager.gd"
+BulletNum="*res://Bullet/bullet_num.gd"
 
 [display]
 
