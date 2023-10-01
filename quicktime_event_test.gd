@@ -47,6 +47,8 @@ func _input(event):
 func _qte_timeout():
 	print("Your time's up buckaroo")
 	_reset_timer()
+
+
 	
 	
 func _qte_fail():
