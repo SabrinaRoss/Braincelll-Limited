@@ -85,7 +85,7 @@ func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
 	self.rotation_degrees = 0  # Facing up
 	velocity = Vector2(0, 0)
-	BulletNum.num_bullet += 2
+	BulletNum.num_bullet += 3
 
 
 
@@ -99,15 +99,15 @@ collision_layer = 2
 script = SubResource("GDScript_suq03")
 
 [node name="Player_Polygon" type="Polygon2D" parent="."]
-position = Vector2(-1.99998, 6.99325)
+position = Vector2(-2.38419e-07, 0)
 scale = Vector2(1.56445, 1.59504)
 texture_scale = Vector2(0, 0)
 polygon = PackedVector2Array(-11.5056, 16, 11.5056, 16, -1.39475e-05, -20.0579)
 
 [node name="Player_Collisions" type="CollisionPolygon2D" parent="."]
-position = Vector2(-32, 80)
+position = Vector2(-30, 73)
 scale = Vector2(5.34375, 20.6992)
-polygon = PackedVector2Array(5.61403, -4.92773, 2.24561, -2.31893, 8.98246, -2.31893)
+polygon = PackedVector2Array(5.61403, -4.92773, 2.24561, -2.31893, 8.98246, -2.31893, 8.29926, -2.84806)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1.0523, 0.993626)
@@ -122,9 +122,9 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="Player_Collisions" type="CollisionPolygon2D" parent="HazardDetector"]
-position = Vector2(-27, 69.6225)
+position = Vector2(-25, 65)
 scale = Vector2(4.47324, 17.4391)
-polygon = PackedVector2Array(5.61403, -4.92773, 2.24561, -2.31893, 8.72861, -2.31148)
+polygon = PackedVector2Array(5.58879, -5.04613, 2.24561, -2.31893, 8.72861, -2.31148)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.794

@@ -9,6 +9,7 @@
 script = ExtResource("1_en06q")
 
 [node name="Area" type="StaticBody2D" parent="."]
+visible = false
 disable_mode = 1
 collision_mask = 0
 
