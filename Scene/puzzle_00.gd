@@ -12,5 +12,8 @@ func _process(delta):
 	if $PressurePlate.pressed:
 		$DoorPlaceholder.emitting = true
 		$Player.get_node("Label").visible = false
+		
+		if $PressurePlate.get_overlapping_bodies().find($Crate) != -1:
+			get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")
 	else:
 		$DoorPlaceholder.emitting = false
