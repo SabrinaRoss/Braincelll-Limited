@@ -15,11 +15,11 @@ func _ready():
 func _process(delta):
 	if target != null:
 		var difference = target.position - position
-		var distance = difference.length() - target.collectable_distance
+		var distance = difference.length() - target.get_node("ItemHolder").collectable_distance
 		
 		if distance > 0.0:
 			var direction = difference / difference.length()
-			var mult = (distance / target.collectable_leniance)**target.collectable_forcefulness
+			var mult = (distance / target.get_node("ItemHolder").collectable_leniance)**target.get_node("ItemHolder").collectable_forcefulness
 			var force = direction * mult
 			self.apply_central_force(force)
 
@@ -29,4 +29,4 @@ func _on_body_entered(body):
 		print("Player picks up item")
 		can_pick_up = false
 		target = body
-		body.held_collectables.push_back(self)
+		body.get_node("ItemHolder").held_collectables.push_back(self)

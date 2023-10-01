@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://nxq0nqo6wenl"]
+[gd_scene load_steps=6 format=3 uid="uid://nxq0nqo6wenl"]
 
 [ext_resource type="Script" path="res://Scene/Lever.gd" id="1_t2va8"]
 [ext_resource type="SpriteFrames" uid="uid://kreqdonl712k" path="res://Resources/lever.aseprite" id="2_57mrc"]
 [ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="3_pit2n"]
+[ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="4_5ou4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2xyt"]
 size = Vector2(10.1, 8.95)
@@ -40,6 +41,8 @@ initial_velocity_min = 100.0
 initial_velocity_max = 200.0
 scale_amount_min = 2.0
 scale_amount_max = 5.0
+
+[node name="ItemHolder" parent="." instance=ExtResource("4_5ou4y")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
