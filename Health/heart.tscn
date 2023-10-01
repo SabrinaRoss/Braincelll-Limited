@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vdlxgl2ff8r"]
+[gd_scene load_steps=3 format=3 uid="uid://0vdlxgl2ff8r"]
 
 [ext_resource type="Script" path="res://Health/heart.gd" id="1_js6ae"]
 [ext_resource type="Texture2D" uid="uid://d4ehgcdqmrqlr" path="res://Fonts/Heart.png" id="1_y7p6m"]
-[ext_resource type="PackedScene" uid="uid://tae4edkpunok" path="res://Bullet/Bullet.tscn" id="3_65stl"]
 
 [node name="Heart" type="Node2D"]
 script = ExtResource("1_js6ae")
@@ -21,7 +20,3 @@ texture = ExtResource("1_y7p6m")
 position = Vector2(688, 40)
 scale = Vector2(0.0730848, 0.0945117)
 texture = ExtResource("1_y7p6m")
-
-[node name="Bullet" parent="." instance=ExtResource("3_65stl")]
-position = Vector2(560, 32)
-scale = Vector2(0.0767296, 0.128884)
