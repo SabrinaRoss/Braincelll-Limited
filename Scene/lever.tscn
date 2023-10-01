@@ -21,7 +21,6 @@ sprite_frames = ExtResource("2_57mrc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.299995, 3.77499)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w2xyt")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

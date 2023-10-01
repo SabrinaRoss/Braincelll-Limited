@@ -3,9 +3,9 @@ extends Area2D
 @export var wants_items = ["wrench"]
 @export var consumes_items = true
 
-@export var collectable_distance = 0.0
-@export var collectable_leniance = 1.0
-@export var collectable_forcefulness = 2
+var collectable_distance = 0.0
+var collectable_leniance = 1.0
+var collectable_forcefulness = 2
 var held_collectables = []
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# Check ofr overlapping bodies
+	# Must do here and not in _on_body_entered becuase we might already be overlapping
+	for body in get_overlapping_bodies():
+		if held_collectables.find(body) != -1:
+			print("Despawn item")
+			held_collectables.remove_at(held_collectables.find(body))
+			body.queue_free()
 
 
 func _on_body_entered(body):
@@ -38,20 +44,18 @@ func _on_body_entered(body):
 			print("satisfied")
 			$AnimatedSprite2D.frame = 1
 			if consumes_items:
-				# Remove bodies from player held items
 				for i_body in bodies:
-					body.held_collectables.remove_at(held_item_names.find(i_body))
-				for i_body in bodies:
+					# Remove bodies from player held items
+					body.held_collectables.remove_at(body.held_collectables.find(i_body))
+					# Set target to self
 					i_body.target = self
 					i_body.can_pick_up = false
+					# Add to our held items (removal queue)
 					held_collectables.push_back(i_body)
+			# Spawn cool particles
 			$CPUParticles2D.emitting = true
 		else:
 			print("not satisfied")
-	elif held_collectables.find(body) != -1:
-		print("Despawn item")
-		held_collectables.remove_at(held_collectables.find(body))
-		body.queue_free()
 
 
 func _on_body_exited(body):
