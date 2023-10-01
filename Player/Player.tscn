@@ -8,6 +8,9 @@ const moove_power = 100
 
 const acceleration = 125
 const friction = 15
+@onready var starting_position = global_position
+
+var timer = null
 
 
 
@@ -69,9 +72,29 @@ func change_direction(direction):
 func player_movement():
 	move_and_slide()
 	
+
+
+func _on_hazard_detector_area_entered(area):
+	
+	LivesManager.lives -= 1
+	LivesManager.lives_counter = 0
+	get_tree().paused = true
+	await get_tree().create_timer(1.5).timeout
+	
+	get_tree().paused = false
+	global_position = starting_position
+	self.rotation_degrees = 0  # Facing up
+	velocity = Vector2(0, 0)
+	BulletNum.num_bullet += 2
+
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.
 "
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 1
 collision_layer = 2
 script = SubResource("GDScript_suq03")
 
@@ -93,3 +116,18 @@ limit_left = 0
 limit_top = 0
 limit_right = 720
 limit_bottom = 480
+
+[node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Player_Collisions" type="CollisionPolygon2D" parent="HazardDetector"]
+position = Vector2(-27, 69.6225)
+scale = Vector2(4.47324, 17.4391)
+polygon = PackedVector2Array(5.61403, -4.92773, 2.24561, -2.31893, 8.72861, -2.31148)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.794
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
