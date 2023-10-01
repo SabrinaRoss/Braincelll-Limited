@@ -2,6 +2,8 @@ extends Node2D
 
 var is_qte_active = false
 var qte_key = KEY_A
+
+
 var qte_key_list = [
 	[KEY_A],
 	[KEY_B, KEY_C],
@@ -11,9 +13,16 @@ var qte_key_list = [
 func _ready():
 	print("ready")
 	$Timer.start() # Get ready to mash the buttonsssssss
+
+	
+
 	_qte_start()
 	
+
+#func _process(delta):
+#	time.text = "Time: " + str($Timer.get_time_left())
 	
+
 func _qte_start():
 	print("qte_start")
 	is_qte_active = true
