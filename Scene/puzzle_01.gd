@@ -15,5 +15,7 @@ func _process(delta):
 	
 	if $Lever.state:
 		$DoorPlaceholder.emitting = true
+		$ExitDoor.open = true
 	else:
 		$DoorPlaceholder.emitting = false
+		$ExitDoor.open = false

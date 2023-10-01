@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bey7yq32sgm2n"]
+[gd_scene load_steps=11 format=3 uid="uid://bey7yq32sgm2n"]
 
 [ext_resource type="Script" path="res://Scene/puzzle_00.gd" id="1_1g8g5"]
 [ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_imp06"]
@@ -6,6 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="3_krdy4"]
 [ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="5_b6e50"]
 [ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="6_fl1wc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_afnid"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_siwo0"]
+normal = Vector2(-1, 0)
+distance = -1152.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7e3f2"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qwlju"]
+distance = -649.0
 
 [node name="Puzzle_00" type="Node2D"]
 script = ExtResource("1_1g8g5")
@@ -44,3 +57,18 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 
 [node name="ExitDoor" parent="." instance=ExtResource("6_fl1wc")]
+position = Vector2(935, 143)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="left" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_afnid")
+
+[node name="right" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_siwo0")
+
+[node name="top" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_7e3f2")
+
+[node name="bottom" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_qwlju")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://da8bibioy23rb"]
+[gd_scene load_steps=19 format=3 uid="uid://da8bibioy23rb"]
 
 [ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_fjmv2"]
 [ext_resource type="Script" path="res://Scene/puzzle_01.gd" id="1_o4eh8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="8_b63lk"]
 [ext_resource type="Script" path="res://Scene/Door.gd" id="9_od3dt"]
 [ext_resource type="SpriteFrames" uid="uid://l1afpisfo5gp" path="res://Resources/door.aseprite" id="10_wrl81"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="11_vibyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqi3w"]
 size = Vector2(251, 64)
@@ -125,3 +126,6 @@ shape = SubResource("RectangleShape2D_jf4oa")
 position = Vector2(-26.5, -8.99999)
 scale = Vector2(7.0625, 9.875)
 sprite_frames = ExtResource("10_wrl81")
+
+[node name="ExitDoor" parent="." instance=ExtResource("11_vibyo")]
+position = Vector2(434, 130)
