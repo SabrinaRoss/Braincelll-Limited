@@ -21,10 +21,6 @@ func _qte_start():
 	
 func _input(event):
 	if is_qte_active:
-		#print("qte is active")
-		#print(event)
-		#print(InputEventAction)
-		#print(event is InputEventAction)
 		if event is InputEventKey and event.pressed:
 			if event.pressed and event.keycode == qte_key:
 				_qte_success()
@@ -47,6 +43,7 @@ func _qte_success():
 	_reset_timer()
 	
 func _reset_timer():
+	$Timer.stop()
 	print("timer resets after QTE event")
 
 
