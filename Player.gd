@@ -4,6 +4,12 @@ signal hit
 @export var speed = 400
 var screen_size
 
+@export var collectable_distance = 40.0
+@export var collectable_leniance = 10.0
+@export var collectable_forcefulness = 2
+var held_collectables = []
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -29,3 +35,14 @@ func _process(delta):
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
+	
+	if Input.is_action_pressed("drop_items"):
+		drop_held_items()
+
+
+func drop_held_items():
+	print("dropp")
+	for held in held_collectables:
+		held.target = null
+	held_collectables = []
+
