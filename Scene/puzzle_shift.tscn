@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj6gq6ytvciuk"]
+[gd_scene load_steps=11 format=3 uid="uid://cj6gq6ytvciuk"]
 
 [ext_resource type="Texture2D" uid="uid://b8jik37dylaiv" path="res://Letter_Asset/a.png" id="1_1jpc4"]
 [ext_resource type="Texture2D" uid="uid://bnx04qsfppta1" path="res://Letter_Asset/b.png" id="2_qiu23"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://llwxte3v2mkr" path="res://Letter_Asset/f.png" id="6_xuk0g"]
 [ext_resource type="Texture2D" uid="uid://cwt5pe7dnpux8" path="res://Letter_Asset/g.png" id="7_ogyr1"]
 [ext_resource type="Texture2D" uid="uid://c2ku70jpntr2h" path="res://Letter_Asset/h.png" id="8_s6xo1"]
+[ext_resource type="Texture2D" uid="uid://cy53s0c3a3cdi" path="res://Letter_Asset/i.png" id="9_hka6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlsq"]
 size = Vector2(900, 900)
@@ -60,6 +61,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("8_s6xo1")
 
 [node name="Tile9" type="Sprite2D" parent="."]
-position = Vector2(150, 150)
+position = Vector2(750, 750)
 scale = Vector2(3, 3)
-texture = ExtResource("1_1jpc4")
+texture = ExtResource("9_hka6i")
