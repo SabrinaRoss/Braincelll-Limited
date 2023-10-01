@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3g6yendvcft4"
-path="res://.godot/imported/gobbo.png-839b7dbaa2292a486b372ed18d00b6bf.ctex"
+uid="uid://dofrfiu2wl36m"
+path="res://.godot/imported/lever.png-0d8153b21973a32ed2d157afbc02b5a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/gobbo.png"
-dest_files=["res://.godot/imported/gobbo.png-839b7dbaa2292a486b372ed18d00b6bf.ctex"]
+source_file="res://Resources/lever.png"
+dest_files=["res://.godot/imported/lever.png-0d8153b21973a32ed2d157afbc02b5a0.ctex"]
 
 [params]
 

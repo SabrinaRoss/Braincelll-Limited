@@ -1,6 +1,8 @@
 extends RigidBody2D
 
+@export var item_name = "wrench"
 var target = null
+var can_pick_up = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +25,8 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("Players"):
+	if body.is_in_group("Players") && can_pick_up:
+		print("Player picks up item")
+		can_pick_up = false
 		target = body
 		body.held_collectables.push_back(self)

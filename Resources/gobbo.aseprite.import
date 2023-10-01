@@ -2,13 +2,13 @@
 
 importer="Aseprite SpriteFrames Import"
 type="SpriteFrames"
-uid="uid://dxwfmu8sut8bp"
-path="res://.godot/imported/wrench.aseprite-84cd32739e97895847ae1cc9f059916a.res"
+uid="uid://c5ch466t25u5v"
+path="res://.godot/imported/gobbo.aseprite-1383ed2fc8185639f133c45b2ad50d74.res"
 
 [deps]
 
-source_file="res://res/wrench.aseprite"
-dest_files=["res://.godot/imported/wrench.aseprite-84cd32739e97895847ae1cc9f059916a.res"]
+source_file="res://Resources/gobbo.aseprite"
+dest_files=["res://.godot/imported/gobbo.aseprite-1383ed2fc8185639f133c45b2ad50d74.res"]
 
 [params]
 

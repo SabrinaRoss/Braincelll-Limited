@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfjw86td62c56"]
+
+[ext_resource type="Script" path="res://Collectable.gd" id="1_qpi30"]
+[ext_resource type="SpriteFrames" uid="uid://dxwfmu8sut8bp" path="res://Resources/wrench.aseprite" id="2_y4nxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4isbo"]
+size = Vector2(8.99999, 8.99999)
+
+[node name="Collectable" type="RigidBody2D"]
+position = Vector2(498, 458)
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 1.1
+script = ExtResource("1_qpi30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 5.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_4isbo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 2)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("2_y4nxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

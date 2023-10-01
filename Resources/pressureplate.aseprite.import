@@ -2,13 +2,13 @@
 
 importer="Aseprite SpriteFrames Import"
 type="SpriteFrames"
-uid="uid://kreqdonl712k"
-path="res://.godot/imported/lever.aseprite-edb27313c488a2c7c130458a903a5d44.res"
+uid="uid://0s3v0t8nnfu3"
+path="res://.godot/imported/pressureplate.aseprite-9443ce806f5c137256f9b14bd8cbfb05.res"
 
 [deps]
 
-source_file="res://res/lever.aseprite"
-dest_files=["res://.godot/imported/lever.aseprite-edb27313c488a2c7c130458a903a5d44.res"]
+source_file="res://Resources/pressureplate.aseprite"
+dest_files=["res://.godot/imported/pressureplate.aseprite-9443ce806f5c137256f9b14bd8cbfb05.res"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd8abss22t0wf"
-path="res://.godot/imported/pressureplate.png-df09cdaadca43be6c61305b7efa6b0fc.ctex"
+uid="uid://f3m0befsdma5"
+path="res://.godot/imported/crate.aseprite-2b7534883bb776d7c99a079831fcb240.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/pressureplate.png"
-dest_files=["res://.godot/imported/pressureplate.png-df09cdaadca43be6c61305b7efa6b0fc.ctex"]
+source_file="res://Resources/crate.aseprite"
+dest_files=["res://.godot/imported/crate.aseprite-2b7534883bb776d7c99a079831fcb240.ctex"]
 
 [params]
 

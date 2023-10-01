@@ -2,13 +2,13 @@
 
 importer="Aseprite SpriteFrames Import"
 type="SpriteFrames"
-uid="uid://c5ch466t25u5v"
-path="res://.godot/imported/gobbo.aseprite-c613f6b110f030ffe21955548a411c07.res"
+uid="uid://kreqdonl712k"
+path="res://.godot/imported/lever.aseprite-3de5250383814feaea0fd0745ecb0704.res"
 
 [deps]
 
-source_file="res://res/gobbo.aseprite"
-dest_files=["res://.godot/imported/gobbo.aseprite-c613f6b110f030ffe21955548a411c07.res"]
+source_file="res://Resources/lever.aseprite"
+dest_files=["res://.godot/imported/lever.aseprite-3de5250383814feaea0fd0745ecb0704.res"]
 
 [params]
 

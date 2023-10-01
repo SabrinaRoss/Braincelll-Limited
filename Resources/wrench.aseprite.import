@@ -2,13 +2,13 @@
 
 importer="Aseprite SpriteFrames Import"
 type="SpriteFrames"
-uid="uid://0s3v0t8nnfu3"
-path="res://.godot/imported/pressureplate.aseprite-72e1c5d48fad6b09da2626bcdb529dd2.res"
+uid="uid://dxwfmu8sut8bp"
+path="res://.godot/imported/wrench.aseprite-06fba450ee10b67f9d164e114348a59b.res"
 
 [deps]
 
-source_file="res://res/pressureplate.aseprite"
-dest_files=["res://.godot/imported/pressureplate.aseprite-72e1c5d48fad6b09da2626bcdb529dd2.res"]
+source_file="res://Resources/wrench.aseprite"
+dest_files=["res://.godot/imported/wrench.aseprite-06fba450ee10b67f9d164e114348a59b.res"]
 
 [params]
 

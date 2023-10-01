@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://brqrpmqc8udo8"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_e2kjm"]
+[ext_resource type="SpriteFrames" uid="uid://c5ch466t25u5v" path="res://Resources/gobbo.aseprite" id="2_6ggul"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he64g"]
+radius = 43.0
+height = 278.0
+
+[node name="Player" type="CharacterBody2D" groups=["Players"]]
+position = Vector2(258, 454)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_e2kjm")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -3)
+shape = SubResource("CapsuleShape2D_he64g")
+
+[node name="GoblinSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(20, 20)
+sprite_frames = ExtResource("2_6ggul")
+speed_scale = 5.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dofrfiu2wl36m"
-path="res://.godot/imported/lever.png-475d981893b9683ce2d77aac104c2219.ctex"
+uid="uid://bwmyh67l50ufq"
+path="res://.godot/imported/check_mark.png-9941d380ed8b06441df82480570efff1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/lever.png"
-dest_files=["res://.godot/imported/lever.png-475d981893b9683ce2d77aac104c2219.ctex"]
+source_file="res://Resources/check_mark.png"
+dest_files=["res://.godot/imported/check_mark.png-9941d380ed8b06441df82480570efff1.ctex"]
 
 [params]
 

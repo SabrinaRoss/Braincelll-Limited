@@ -4,9 +4,9 @@ signal hit
 @export var speed = 400
 var screen_size
 
-@export var collectable_distance = 40.0
-@export var collectable_leniance = 10.0
-@export var collectable_forcefulness = 2
+@export var collectable_distance = 80.0
+@export var collectable_leniance = 5.0
+@export var collectable_forcefulness = 3
 var held_collectables = []
 
 

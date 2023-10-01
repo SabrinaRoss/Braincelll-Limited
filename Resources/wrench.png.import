@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3m0befsdma5"
-path="res://.godot/imported/crate.aseprite-694b720213b0c75be1fc3acd82937b0a.ctex"
+uid="uid://26kuia3pkqsg"
+path="res://.godot/imported/wrench.png-5c7f62e1d8e2096f9a70f7dead65ee0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/crate.aseprite"
-dest_files=["res://.godot/imported/crate.aseprite-694b720213b0c75be1fc3acd82937b0a.ctex"]
+source_file="res://Resources/wrench.png"
+dest_files=["res://.godot/imported/wrench.png-5c7f62e1d8e2096f9a70f7dead65ee0e.ctex"]
 
 [params]
 
