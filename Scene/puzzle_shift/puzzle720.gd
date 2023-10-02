@@ -1,5 +1,6 @@
 extends Area2D
 
+signal puzzle_completed
 
 var mouse_over = false
 var tiles = []
@@ -7,6 +8,7 @@ var solved = []
 var mouse = false
 var xc = 100
 var yc = 100
+var difficulty = 150
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print("AY AY CAPTAINNNN")
@@ -32,13 +34,15 @@ func _process(delta):
 		check_neighbors(rows, cols)
 		if tiles == solved:
 			print("Congrats!!")
+			emit_signal("puzzle_completed")
 			# call qte_end
+			# send signal up to PopUp.tscn to indicate
 
 # 150 seems to be a sweet spot
 func shuffle_tiles():
 	var previous = 99
 	var previous1 = 98
-	for i in range(0, 150):
+	for i in range(0, difficulty):
 		var tile = randi() % 9
 		if tiles[tile] != $Tile9 and tile != previous and tile != previous1:
 			var rows = int(tiles[tile].position.y / yc)
@@ -102,15 +106,3 @@ func swap_tiles(tile_src, tile_dst):
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		mouse = event
-
-
-func _on_mouse_entered():
-	mouse_over = true
-	print("Hey it's me!")
-	
-
-
-
-func _on_mouse_exited():
-	mouse_over = false
-	print("Goodby mousey")

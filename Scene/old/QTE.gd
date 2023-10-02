@@ -1,17 +1,18 @@
 extends Node2D
 
 @onready var first_label = get_node("../../MarginContainer/Label")
-
+@onready var timey = get_node("../../../Timer")
+signal timeout_ree
 
 var is_qte_active = false
-var qte_key = KEY_A
-
+var og_time = 20
 func _ready():
-	print("ready")
-	print("===========")
-	print(first_label)
-	print(first_label.text)
-	print("============")
+	#print("ready")
+	#print("===========")
+	#print(first_label)
+	#print(first_label.text)
+	#print("============")
+	print(timey)
 	$Timer.start() # Get ready to mash the buttonsssssss
 
 	
@@ -23,36 +24,29 @@ func _process(delta):
 	first_label.text = "Time: " + str(snapped($Timer.get_time_left(), 0.01))
 	
 
+# Puzzle event start
 func _qte_start():
-	print("qte_start")
+	#print("qte_start")
 	is_qte_active = true
 	
 	
-func _input(event):
-	if is_qte_active:
-		if event is InputEventKey and event.pressed:
-			if event.pressed and event.keycode == qte_key:
-				_qte_success()
-			else:
-				_qte_fail()
 	
-	
-# Connected from Timer
+# Connected from Timer, timer runs out
 func _qte_timeout():
 	print("Your time's up buckaroo")
+	emit_signal("timeout_ree")
 	_reset_timer()
 
-
-	
-	
-func _qte_fail():
-	print("Puzzle fail")
-	_reset_timer()
-	
+# Successfully solving puzzle
 func _qte_success():
-	print("Event success")
+	#print("Event success")
 	_reset_timer()
 	
 func _reset_timer():
-	$Timer.paused = true # Figure out if pausing timer is possible instead of stopping it... stopping it resets it to 0
-	print("timer resets after QTE event")
+	# Simple reset timer workaround
+	$Timer.stop()
+	$Timer.wait_time = 0
+	$Timer.start()
+	# got the timer from how long it'll take for the popup to reappear
+	$Timer.wait_time = og_time + timey.wait_time
+	#print("timer resets after QTE event")

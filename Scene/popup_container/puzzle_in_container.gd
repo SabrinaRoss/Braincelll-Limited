@@ -1,6 +1,7 @@
 extends Area2D
 
-
+@onready var end = get_node("../MarginContainer/QTE")
+signal puzzle_completed
 
 var tiles = []
 var solved = []
@@ -10,6 +11,7 @@ var yc = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print("AY AY CAPTAINNNN")
+	print(end)
 	start_game()
 
 func start_game():
@@ -31,14 +33,17 @@ func _process(delta):
 		#print(tiles[pos])
 		check_neighbors(rows, cols)
 		if tiles == solved:
-			print("Congrats!!")
-			# call qte_end
+			end._qte_success()
+			emit_signal("puzzle_completed")
+			
+			# call qte_success
+			# pauses countdown timer and resets it
 
 # 150 seems to be a sweet spot
 func shuffle_tiles():
 	var previous = 99
 	var previous1 = 98
-	for i in range(0, 150):
+	for i in range(0, 15):
 		var tile = randi() % 9
 		if tiles[tile] != $Tile9 and tile != previous and tile != previous1:
 			var rows = int(tiles[tile].position.y / yc)
