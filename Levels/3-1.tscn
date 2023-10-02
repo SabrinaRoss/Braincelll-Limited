@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://cehi20ffeix8u"]
+
+[ext_resource type="Script" path="res://Levels/3-1.gd" id="1_gllu3"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="1_qvpn2"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Objects/pressure_plate.tscn" id="2_0ghim"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="3_vpqvc"]
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="4_tusgn"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="5_6dcd5"]
+[ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="6_536jh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utc12"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ojhc8"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sqq4o"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_on7r2"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[node name="3-1" type="Node2D"]
+script = ExtResource("1_gllu3")
+
+[node name="Crate" parent="." instance=ExtResource("1_qvpn2")]
+position = Vector2(379, 375)
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 7
+
+[node name="PressurePlate" parent="." instance=ExtResource("2_0ghim")]
+position = Vector2(601, 372)
+scale = Vector2(7, 7)
+collision_layer = 1
+collision_mask = 31
+
+[node name="Border" type="StaticBody2D" parent="."]
+scale = Vector2(0.625, 0.75)
+
+[node name="bottom" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_utc12")
+
+[node name="top" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_ojhc8")
+
+[node name="left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_sqq4o")
+
+[node name="right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_on7r2")
+
+[node name="ExitDoor" parent="." instance=ExtResource("3_vpqvc")]
+position = Vector2(320, 149)
+scale = Vector2(5, 5)
+collision_layer = 11
+
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("4_tusgn")]
+position = Vector2(139, 375)
+collision_mask = 11
+
+[node name="ItemHolder" parent="Player" instance=ExtResource("6_536jh")]
+
+[node name="Heart" parent="." instance=ExtResource("5_6dcd5")]
