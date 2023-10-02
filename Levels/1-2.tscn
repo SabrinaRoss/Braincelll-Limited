@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://ckhjqdrqeglgy"]
 
-[ext_resource type="Script" path="res://Levels/Level0/level_0.gd" id="1_spbda"]
+[ext_resource type="Script" path="res://Levels/1-2.gd" id="1_85pwl"]
 [ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="2_ch5ab"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="3_vsbim"]
 [ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Objects/collectable.tscn" id="4_mjc2e"]
@@ -57,8 +57,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Puzzle02" type="Node2D"]
-script = ExtResource("1_spbda")
+[node name="1-2" type="Node2D"]
+script = ExtResource("1_85pwl")
 
 [node name="Lever" parent="." instance=ExtResource("2_ch5ab")]
 position = Vector2(418, 189)

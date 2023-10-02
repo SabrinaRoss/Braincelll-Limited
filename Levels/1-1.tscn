@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bfjkhrul0wg30"]
 
-[ext_resource type="Script" path="res://Scene/puzzle_00.gd" id="1_qhubx"]
+[ext_resource type="Script" path="res://Levels/1-1.gd" id="1_r506w"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="3_kwr3o"]
 [ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="5_ffat7"]
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Objects/pressure_plate.tscn" id="6_7tcf1"]
@@ -21,8 +21,8 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 distance = -1154.0
 
-[node name="Puzzle01" type="Node2D"]
-script = ExtResource("1_qhubx")
+[node name="1-1" type="Node2D"]
+script = ExtResource("1_r506w")
 
 [node name="Crate" parent="." instance=ExtResource("5_ffat7")]
 position = Vector2(379, 375)
