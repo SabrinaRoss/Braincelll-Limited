@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://di3eepayskhtn" path="res://Scene/puzzle.tscn" id="4_vwrm8"]
 [ext_resource type="Script" path="res://Health/Lives_manager.gd" id="6_l55ia"]
 
-[node name="Level0" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_ys62f")
 
 [node name="Player" parent="." groups=["Players"] instance=ExtResource("1_jlx8b")]

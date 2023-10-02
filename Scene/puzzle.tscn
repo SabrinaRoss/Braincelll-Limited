@@ -136,6 +136,7 @@ shape = SubResource("RectangleShape2D_f3wk7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
 texture_filter = 1
+texture_repeat = 1
 position = Vector2(-26.5, -8.99999)
 scale = Vector2(7.0625, 9.875)
 sprite_frames = SubResource("SpriteFrames_am632")
