@@ -28,7 +28,7 @@ position = Vector2(362, 404)
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 5.0
+wait_time = 10.0
 
 [node name="Heart" parent="." instance=ExtResource("3_h2vra")]
 

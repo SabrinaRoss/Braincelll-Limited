@@ -16,8 +16,8 @@ func _physics_process(delta):
 		
 	elif LivesManager.lives == 0:
 		$Heart1.hide()
-		get_tree().paused = true
+		#get_tree().paused = true
 		
 		
-
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://Scene/game_over_screen/game_over_screen.tscn")
+		#get_tree().reload_current_scene()
