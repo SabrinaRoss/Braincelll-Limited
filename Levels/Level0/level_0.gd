@@ -17,5 +17,5 @@ func _process(delta):
 		$ExitDoor.open = false
 		
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
-		print("Todo: change scene")
-		#get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")
+		print("Level complete, change scene")
+		get_tree().change_scene_to_file("res://Levels/2-1.tscn")
