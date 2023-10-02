@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cejrltbq0vlri"]
+[gd_scene load_steps=4 format=3 uid="uid://3tlvwwr2oxnn"]
 
 [ext_resource type="FontFile" uid="uid://brb5mrvcgi5pc" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_l5eqf"]
 [ext_resource type="Script" path="res://quicktime_event_test.gd" id="1_nw6ge"]
+[ext_resource type="PackedScene" uid="uid://cj6gq6ytvciuk" path="res://Scene/puzzle_shift/puzzle_shift.tscn" id="2_a8cvo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -20,15 +21,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_l5eqf")
 theme_override_font_sizes/font_size = 90
 text = "Time:"
@@ -36,21 +33,15 @@ text = "Time:"
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 840)
 layout_mode = 2
-size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("1_l5eqf")
-theme_override_font_sizes/font_size = 80
-text = "Type the following in order:"
+[node name="PuzzleShift" parent="MarginContainer/MarginContainer" instance=ExtResource("2_a8cvo")]
 
 [node name="Quicktime Event Test" type="Node2D" parent="MarginContainer/MarginContainer"]
 position = Vector2(33, 10)
 script = ExtResource("1_nw6ge")
 
 [node name="Timer" type="Timer" parent="MarginContainer/MarginContainer/Quicktime Event Test"]
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 
 [connection signal="timeout" from="MarginContainer/MarginContainer/Quicktime Event Test/Timer" to="MarginContainer/MarginContainer/Quicktime Event Test" method="_qte_timeout"]

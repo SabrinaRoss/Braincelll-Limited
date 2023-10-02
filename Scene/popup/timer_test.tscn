@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvohefbvr2nd2"]
+
+[ext_resource type="Script" path="res://Scene/old/Popup.gd" id="2_ouj2r"]
+[ext_resource type="PackedScene" uid="uid://3tlvwwr2oxnn" path="res://quicktime_event_test.tscn" id="3_0ryib"]
+
+[sub_resource type="GDScript" id="GDScript_3xl2t"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Timer.start()
+	print($Popup.is_visible())
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_timer_timeout():
+	if($Timer.is_stopped()):
+		print(\"It's about to pop off!!\")
+		
+		$Popup.show()
+		print($Popup.is_visible())
+		
+	
+	
+
+"
+
+[node name="timer_test" type="Node2D"]
+script = SubResource("GDScript_3xl2t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Popup" type="Popup" parent="."]
+initial_position = 5
+size = Vector2i(1920, 1080)
+script = ExtResource("2_ouj2r")
+
+[node name="CanvasLayer" parent="Popup" instance=ExtResource("3_0ryib")]
+
+[node name="popup_timer" type="Timer" parent="Popup"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
+[connection signal="timeout" from="Popup/popup_timer" to="Popup" method="_on_popup_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wg6r5l4veqfg"]
 
-[ext_resource type="Script" path="res://Scene/QTEnode.gd" id="1_ap0qa"]
+[ext_resource type="Script" path="res://Scene/old/QTEnode.gd" id="1_ap0qa"]
 [ext_resource type="Texture2D" uid="uid://b8jik37dylaiv" path="res://Letter_Asset/a.png" id="2_3a7hi"]
 
 [node name="Node2D" type="Node2D"]

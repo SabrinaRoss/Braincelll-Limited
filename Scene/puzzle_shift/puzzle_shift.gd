@@ -3,6 +3,8 @@ extends Area2D
 var tiles = []
 var solved = []
 var mouse = false
+var xc = 300 + 61
+var yc = 300 + 39
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_game()
@@ -17,8 +19,8 @@ func _process(delta):
 		var mouse_copy = mouse.duplicate()
 		#print(mouse.position)
 		mouse = false
-		var rows = int(mouse_copy.position.y/300)
-		var cols = int(mouse_copy.position.x/300)
+		var rows = int(mouse_copy.position.y/yc)
+		var cols = int(mouse_copy.position.x/xc)
 		print(rows, ", ", cols)
 		
 		# Uncertain what the following means
@@ -34,8 +36,8 @@ func shuffle_tiles():
 	for i in range(0, 1000):
 		var tile = randi() % 9
 		if tiles[tile] != $Tile9 and tile != previous and tile != previous1:
-			var rows = int(tiles[tile].position.y / 300)
-			var cols = int(tiles[tile].position.x / 300)
+			var rows = int(tiles[tile].position.y / yc)
+			var cols = int(tiles[tile].position.x / xc)
 			check_neighbors(rows,cols)
 			previous1 = previous
 			previous = tile
@@ -50,30 +52,30 @@ func check_neighbors(rows, cols):
 		
 		# Vertical position swap
 		if rows < 2:
-			new_pos.y += 300
+			new_pos.y += yc
 			empty = find_empty(new_pos, pos)
-			new_pos.y -= 300
+			new_pos.y -= yc
 		if rows > 0:
-			new_pos.y -= 300
+			new_pos.y -= yc
 			empty = find_empty(new_pos, pos)
-			new_pos.y += 300
+			new_pos.y += yc
 			
 		# Horizontal position swap
 		if cols < 2:
-			new_pos.x += 300
+			new_pos.x += xc
 			empty = find_empty(new_pos, pos)
-			new_pos.x -= 300
+			new_pos.x -= xc
 		if cols > 0:
-			new_pos.x -= 300
+			new_pos.x -= xc
 			empty = find_empty(new_pos, pos)
-			new_pos.x += 300
+			new_pos.x += xc
 		
 		done = true
 			
 # Finding the empty position in between two tiles
 func find_empty(posit, pos):
-	var new_rows = int(posit.y/300)
-	var new_cols = int(posit.x/300)
+	var new_rows = int(posit.y/yc)
+	var new_cols = int(posit.x/xc)
 	var new_pos = new_rows * 3 + new_cols
 	
 	if tiles[new_pos] == $Tile9:
