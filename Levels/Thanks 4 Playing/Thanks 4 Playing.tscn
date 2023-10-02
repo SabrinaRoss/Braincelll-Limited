@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://cw8iccpd2xei5"]
+
+[ext_resource type="Texture2D" uid="uid://c2065do82asb" path="res://2d RPG aspect/char_rough_spries/Thanks for playing!!!.png" id="1_0p0sx"]
+[ext_resource type="Script" path="res://Levels/Thanks 4 Playing/Thanks 4 Playing.gd" id="1_aame0"]
+[ext_resource type="Texture2D" uid="uid://cbeaep2m3b2ok" path="res://2d RPG aspect/char_rough_spries/James_Face.jpg" id="2_ajhx2"]
+[ext_resource type="Script" path="res://Levels/Thanks 4 Playing/Thanks_4_Playin.gd" id="2_yl25e"]
+[ext_resource type="Texture2D" uid="uid://o2b5vm6s28i6" path="res://2d RPG aspect/char_rough_spries/Rowan_Face.png" id="3_76h7d"]
+[ext_resource type="Texture2D" uid="uid://b7fgn2gqhuikw" path="res://2d RPG aspect/char_rough_spries/Kirin_Face.png" id="4_jprpm"]
+[ext_resource type="PackedScene" uid="uid://cgl3uebv366m" path="res://2d RPG aspect/2dRPG_Character.tscn" id="5_xd0tt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfo4"]
+atlas = ExtResource("1_0p0sx")
+region = Rect2(0, 0, 610, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dab4e"]
+atlas = ExtResource("2_ajhx2")
+region = Rect2(0, 0, 460, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrdy7"]
+atlas = ExtResource("3_76h7d")
+region = Rect2(0, 0, 800, 883)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_473eb"]
+atlas = ExtResource("4_jprpm")
+region = Rect2(0, 0, 610, 330)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcwx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dab4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrdy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_473eb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="Thanks 4 Playing" type="Node2D"]
+script = ExtResource("1_aame0")
+
+[node name="Area" type="StaticBody2D" parent="."]
+disable_mode = 1
+collision_mask = 0
+script = ExtResource("2_yl25e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area"]
+position = Vector2(360, 239)
+scale = Vector2(0.9, 0.541336)
+sprite_frames = SubResource("SpriteFrames_xcwx6")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_xd0tt")]
+position = Vector2(360, 255)
