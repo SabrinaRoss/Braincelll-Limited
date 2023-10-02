@@ -128,10 +128,16 @@ position = Vector2(592, 272)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(584, 272)
-zoom = Vector2(0.5, 0.5)
 limit_left = 0
 limit_top = 0
 limit_right = 1560
 limit_bottom = 1400
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1464.0
+offset_top = 648.0
+offset_right = 1504.0
+offset_bottom = 688.0

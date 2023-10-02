@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4mm27yjrd3cc"]
+
+[ext_resource type="PackedScene" uid="uid://c67diadg6svd8" path="res://Levels/Level0/level_0.tscn" id="1_kmcf8"]
+[ext_resource type="Script" path="res://Levels/Level0/level_0.gd" id="2_xhwdo"]
+
+[node name="Puzzle01" instance=ExtResource("1_kmcf8")]
+script = ExtResource("2_xhwdo")
+
+[node name="Lever" parent="." index="0"]
+position = Vector2(134, 306)
+
+[node name="Collectable" parent="." index="1"]
+visible = true
+position = Vector2(630, 428)
+
+[node name="Crate" parent="." index="2"]
+visible = false
+position = Vector2(1281, 132)
+
+[node name="PressurePlate" parent="." index="3"]
+position = Vector2(1107, 224)
+
+[node name="Walls" parent="." index="4"]
+position = Vector2(1051, 338)
+
+[node name="Door" parent="." index="6"]
+position = Vector2(907, 472)
+
+[node name="ExitDoor" parent="." index="7"]
+position = Vector2(215, 132)
+
+[node name="Player" parent="." index="8"]
+position = Vector2(363, 255)
