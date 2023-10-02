@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c67diadg6svd8"]
+[gd_scene load_steps=20 format=3 uid="uid://c67diadg6svd8"]
 
 [ext_resource type="Script" path="res://Scene/level_0.gd" id="1_8g2dr"]
 [ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Scene/lever.tscn" id="3_rp0ys"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="5_vtmjo"]
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="6_d3un0"]
 [ext_resource type="Texture2D" uid="uid://bhsiripn4x0vf" path="res://Resources/wall.aseprite" id="7_2eluc"]
-[ext_resource type="Texture2D" uid="uid://bcxc52kkox2rt" path="res://Resources/check_mark.aseprite" id="8_4vcp1"]
 [ext_resource type="Script" path="res://Scene/Door.gd" id="9_6pvdq"]
 [ext_resource type="SpriteFrames" uid="uid://l1afpisfo5gp" path="res://Resources/door.aseprite" id="10_0iw6l"]
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="11_bejhi"]
@@ -110,15 +109,6 @@ shape = SubResource("WorldBoundaryShape2D_k31x5")
 
 [node name="right" type="CollisionShape2D" parent="Border"]
 shape = SubResource("WorldBoundaryShape2D_vsecp")
-
-[node name="DoorPlaceholder" type="CPUParticles2D" parent="."]
-position = Vector2(219, 123)
-emitting = false
-texture = ExtResource("8_4vcp1")
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
 
 [node name="Door" type="StaticBody2D" parent="."]
 position = Vector2(220, 382)
