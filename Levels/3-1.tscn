@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cehi20ffeix8u"]
+[gd_scene load_steps=13 format=3 uid="uid://cehi20ffeix8u"]
 
 [ext_resource type="Script" path="res://Levels/3-1.gd" id="1_gllu3"]
 [ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="1_qvpn2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="4_tusgn"]
 [ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="5_6dcd5"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="6_536jh"]
+[ext_resource type="PackedScene" uid="uid://b4hbokcsnuocj" path="res://Scene/popup/PopUp.tscn" id="8_xnq1d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utc12"]
 distance = -646.0
@@ -64,3 +65,5 @@ collision_mask = 11
 [node name="ItemHolder" parent="Player" instance=ExtResource("6_536jh")]
 
 [node name="Heart" parent="." instance=ExtResource("5_6dcd5")]
+
+[node name="PopUp" parent="." instance=ExtResource("8_xnq1d")]

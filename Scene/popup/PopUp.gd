@@ -4,9 +4,9 @@ extends Node2D
 
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	#$Timer.wait_time = 3
 	$Timer.start()
 	hide_qte()
@@ -17,10 +17,14 @@ func _ready():
 	
 
 func show_qte():
+	
 	$popup_container.visible = true
+	
 
 func hide_qte():
+	
 	$popup_container.visible = false
+	
 
 
 # When the timer runs out 
@@ -31,6 +35,7 @@ func _on_timer_timeout():
 		# QTE Puzzle event
 		show_qte()
 		
+		
 # Puzzle complete
 func _on_puzzle_completed():
 	print("Puzzle completed bitches")
@@ -38,7 +43,7 @@ func _on_puzzle_completed():
 	
 	# Resetting Timer
 	$Timer.start()
-		
+	_ready()
 		
 #Puzzle failed on timeout
 func _on_timeout_ree():
@@ -48,6 +53,7 @@ func _on_timeout_ree():
 	$Timer.start()
 	
 	
+
 	
 
 

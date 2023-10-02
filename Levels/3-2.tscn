@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://7r5kgeaklnge"]
+[gd_scene load_steps=24 format=3 uid="uid://7r5kgeaklnge"]
 
 [ext_resource type="Script" path="res://Levels/3-2.gd" id="1_gqhpr"]
 [ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="1_gqikm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="9_7fogo"]
 [ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="10_k56tc"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="11_i0y6w"]
+[ext_resource type="PackedScene" uid="uid://b4hbokcsnuocj" path="res://Scene/popup/PopUp.tscn" id="13_2wysv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8id8g"]
 size = Vector2(251, 64)
@@ -161,3 +162,5 @@ collision_mask = 11
 [node name="ItemHolder" parent="Player" instance=ExtResource("11_i0y6w")]
 
 [node name="Heart" parent="." instance=ExtResource("10_k56tc")]
+
+[node name="PopUp" parent="." instance=ExtResource("13_2wysv")]

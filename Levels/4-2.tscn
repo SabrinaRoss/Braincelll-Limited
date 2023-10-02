@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b51jskviblhnv"]
+[gd_scene load_steps=24 format=3 uid="uid://b51jskviblhnv"]
 
 [ext_resource type="Script" path="res://Scene/Puzzle1_Bullets.gd" id="1_louhy"]
 [ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="2_3j1ks"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="10_jmqtw"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="11_jm8b4"]
 [ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="12_6ecij"]
+[ext_resource type="PackedScene" uid="uid://b4hbokcsnuocj" path="res://Scene/popup/PopUp.tscn" id="13_j7qe3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clc7y"]
 size = Vector2(251, 64)
@@ -203,3 +204,5 @@ scale = Vector2(3.9375, 4)
 texture = ExtResource("6_ig7la")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 16)
+
+[node name="PopUp" parent="." instance=ExtResource("13_j7qe3")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bum6db417lle5"]
+[gd_scene load_steps=10 format=3 uid="uid://bum6db417lle5"]
 
 [ext_resource type="Script" path="res://Objects/Bullets+Timer.gd" id="1_35fb7"]
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="1_gm0jh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Health/Lives_manager.gd" id="3_2thk8"]
 [ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="4_j4sqw"]
 [ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="5_xq0ld"]
+[ext_resource type="PackedScene" uid="uid://b4hbokcsnuocj" path="res://Scene/popup/PopUp.tscn" id="7_dp518"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmi70"]
 size = Vector2(251, 64)
@@ -216,3 +217,5 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2(98.5, 134)
 shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="PopUp" parent="." instance=ExtResource("7_dp518")]
