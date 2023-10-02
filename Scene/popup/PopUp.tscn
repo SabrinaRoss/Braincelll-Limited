@@ -12,17 +12,8 @@ unique_name_in_owner = true
 layer = 2
 visible = false
 
-[node name="Popup" type="Popup" parent="."]
-initial_position = 4
-size = Vector2i(720, 480)
-always_on_top = true
-transparent = true
-mouse_passthrough = true
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
 
-[connection signal="mouse_entered" from="Popup" to="." method="_on_popup_mouse_entered"]
-[connection signal="mouse_exited" from="Popup" to="." method="_on_popup_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
