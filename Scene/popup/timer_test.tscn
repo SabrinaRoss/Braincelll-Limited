@@ -49,6 +49,10 @@ script = ExtResource("2_ouj2r")
 wait_time = 5.0
 one_shot = true
 
+[node name="Window" type="Window" parent="."]
+borderless = true
+popup_window = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]
 [connection signal="timeout" from="Popup/popup_timer" to="Popup" method="_on_popup_timer_timeout"]
