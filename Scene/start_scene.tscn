@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://oy7dc1fkmdr4"]
+
+[ext_resource type="Script" path="res://Scene/start_scene.gd" id="1_lsftn"]
+[ext_resource type="FontFile" uid="uid://blaxo84co62o2" path="res://Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_p8yuy"]
+[ext_resource type="FontFile" uid="uid://cy5mnx61qi1f" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_ka5x6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2lv5i"]
+line_spacing = 5.0
+font = ExtResource("1_p8yuy")
+font_size = 150
+
+[node name="start_scene" type="CanvasLayer"]
+script = ExtResource("1_lsftn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 16.0
+offset_right = 157.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "BRAINCELLS
+LIMITED"
+label_settings = SubResource("LabelSettings_2lv5i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Start Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ka5x6")
+theme_override_font_sizes/font_size = 69
+text = "Start"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
