@@ -10,14 +10,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if $PressurePlate.pressed:
+		$ExitDoor.open =true
+	else:
+		$ExitDoor.open = false
+	'''
+	if $Lever.state:
 		$DoorPlaceholder.emitting = true
-		$Player.get_node("Label").visible = false
-		
-		#if $PressurePlate.get_overlapping_bodies().find($Crate) != -1:
-		$ExitDoor.open = true
+		$Door.open()
 	else:
 		$DoorPlaceholder.emitting = false
-		$ExitDoor.open = false
-	
+		$Door.close()
+		'''
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
 		get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")

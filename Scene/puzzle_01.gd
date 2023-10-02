@@ -19,3 +19,7 @@ func _process(delta):
 	else:
 		$DoorPlaceholder.emitting = false
 		$ExitDoor.open = false
+		
+	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
+		
+		#get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")

@@ -1,0 +1,204 @@
+[gd_scene load_steps=23 format=3 uid="uid://b51jskviblhnv"]
+
+[ext_resource type="Script" path="res://Scene/Puzzle1_Bullets.gd" id="1_fgl1p"]
+[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="1_kigtb"]
+[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Objects/collectable.tscn" id="2_b11rt"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="3_8yir4"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Objects/pressure_plate.tscn" id="4_wnhkk"]
+[ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="5_qe6wv"]
+[ext_resource type="Script" path="res://Objects/Door.gd" id="6_xt02a"]
+[ext_resource type="Texture2D" uid="uid://dn47uayasyni6" path="res://Resources/door.png" id="7_r504g"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="8_si4m5"]
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="9_anrgw"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="10_io8ke"]
+[ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="11_p7m0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clc7y"]
+size = Vector2(251, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxcn8"]
+size = Vector2(63, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8dlll"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3c0uh"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5gbcf"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jpi0e"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wfxk"]
+size = Vector2(20, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gul"]
+atlas = ExtResource("7_r504g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ba6y"]
+atlas = ExtResource("7_r504g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6xe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6gul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ba6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fgl1p")
+
+[node name="Lever" parent="." instance=ExtResource("1_kigtb")]
+position = Vector2(641, 397)
+scale = Vector2(7, 7)
+collision_layer = 27
+collision_mask = 31
+
+[node name="Collectable" parent="." instance=ExtResource("2_b11rt")]
+position = Vector2(117, 189)
+collision_layer = 16
+collision_mask = 7
+
+[node name="Crate" parent="." instance=ExtResource("3_8yir4")]
+position = Vector2(577, 117)
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 7
+
+[node name="PressurePlate" parent="." instance=ExtResource("4_wnhkk")]
+position = Vector2(636, 180)
+scale = Vector2(7, 7)
+collision_layer = 1
+collision_mask = 31
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(124, 101)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("RectangleShape2D_clc7y")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_qe6wv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_qe6wv")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_oxcn8")
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(13, 7)
+scale = Vector2(0.625, 0.75)
+
+[node name="bottom" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_8dlll")
+
+[node name="top" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_3c0uh")
+
+[node name="left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_5gbcf")
+
+[node name="right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_jpi0e")
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(233, 181)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_xt02a")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_2wfxk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+texture_filter = 1
+position = Vector2(-26.5, -8.99999)
+scale = Vector2(7.0625, 9.875)
+sprite_frames = SubResource("SpriteFrames_t6xe6")
+
+[node name="ExitDoor" parent="." instance=ExtResource("8_si4m5")]
+position = Vector2(151, 432)
+scale = Vector2(5, 5)
+collision_layer = 11
+
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("9_anrgw")]
+position = Vector2(57, 418)
+collision_mask = 11
+
+[node name="ItemHolder" parent="Player" instance=ExtResource("11_p7m0o")]
+
+[node name="Heart" parent="." instance=ExtResource("10_io8ke")]
+position = Vector2(13, 7)
+
+[node name="Walls2" type="StaticBody2D" parent="."]
+position = Vector2(126, 294)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
+shape = SubResource("RectangleShape2D_clc7y")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls2"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_qe6wv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="Walls3" type="StaticBody2D" parent="."]
+position = Vector2(564, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls3"]
+shape = SubResource("RectangleShape2D_clc7y")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls3"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_qe6wv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="Walls4" type="StaticBody2D" parent="."]
+position = Vector2(379, 444)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls4"]
+shape = SubResource("RectangleShape2D_clc7y")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls4"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_qe6wv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)

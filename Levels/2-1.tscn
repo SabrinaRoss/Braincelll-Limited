@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ofwe5rebxkfv"]
+
+[ext_resource type="Script" path="res://Objects/Bullets+Timer.gd" id="1_tuhql"]
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="2_5wpay"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="3_h2vra"]
+[ext_resource type="Script" path="res://Health/Lives_manager.gd" id="4_4qg01"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="5_1eavg"]
+
+[node name="2-1" type="Node2D"]
+script = ExtResource("1_tuhql")
+
+[node name="Area" type="StaticBody2D" parent="."]
+visible = false
+disable_mode = 1
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Area"]
+offset_right = 724.0
+offset_bottom = 480.0
+scale = Vector2(0.996579, 1)
+color = Color(0.898039, 0.898039, 0.898039, 0.807843)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("2_5wpay")]
+position = Vector2(362, 404)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+
+[node name="Heart" parent="." instance=ExtResource("3_h2vra")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("4_4qg01")
+
+[node name="ExitDoor" parent="." instance=ExtResource("5_1eavg")]
+position = Vector2(126, 143)
+scale = Vector2(5, 5)
+collision_layer = 11
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

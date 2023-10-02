@@ -1,0 +1,217 @@
+[gd_scene load_steps=9 format=3 uid="uid://bum6db417lle5"]
+
+[ext_resource type="Script" path="res://Objects/Bullets+Timer.gd" id="1_35fb7"]
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="1_gm0jh"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="2_8mbxm"]
+[ext_resource type="Script" path="res://Health/Lives_manager.gd" id="3_2thk8"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="4_j4sqw"]
+[ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="5_xq0ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmi70"]
+size = Vector2(251, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh5yt"]
+size = Vector2(63, 46)
+
+[node name="4-1" type="Node2D"]
+script = ExtResource("1_35fb7")
+
+[node name="Area" type="StaticBody2D" parent="."]
+visible = false
+disable_mode = 1
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Area"]
+offset_right = 724.0
+offset_bottom = 480.0
+scale = Vector2(0.996579, 1)
+color = Color(0.898039, 0.898039, 0.898039, 0.807843)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("1_gm0jh")]
+position = Vector2(86, 412)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+
+[node name="Heart" parent="." instance=ExtResource("2_8mbxm")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_2thk8")
+
+[node name="ExitDoor" parent="." instance=ExtResource("4_j4sqw")]
+position = Vector2(545, 79)
+scale = Vector2(5, 5)
+collision_layer = 11
+
+[node name="Walls6" type="StaticBody2D" parent="."]
+position = Vector2(354, 46)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls6"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls6"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls6"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls6"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="Walls5" type="StaticBody2D" parent="."]
+position = Vector2(592, 192)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls5"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls5"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls5"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls5"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="Walls3" type="StaticBody2D" parent="."]
+position = Vector2(355, 192)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls3"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls3"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls3"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls3"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="Walls4" type="StaticBody2D" parent="."]
+position = Vector2(3430, 960)
+scale = Vector2(5, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls4"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls4"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls4"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls4"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="Walls2" type="StaticBody2D" parent="."]
+position = Vector2(361, 320)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls2"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls2"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls2"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(124, 320)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("RectangleShape2D_kmi70")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_xq0ld")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_rh5yt")

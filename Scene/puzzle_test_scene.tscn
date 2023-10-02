@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0a78c22kjuc6"]
 
-[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="1_cf14h"]
-[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Scene/collectable.tscn" id="2_sx6eu"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="1_cf14h"]
+[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Objects/collectable.tscn" id="2_sx6eu"]
 [ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="3_g01f8"]
-[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="4_285u4"]
-[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Scene/lever.tscn" id="5_lsy0u"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Objects/pressure_plate.tscn" id="4_285u4"]
+[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="5_lsy0u"]
 
 [node name="Scene" type="Node2D"]
 

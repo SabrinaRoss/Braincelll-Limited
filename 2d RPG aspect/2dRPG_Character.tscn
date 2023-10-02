@@ -117,16 +117,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc666"]
-size = Vector2(80, 148)
+size = Vector2(77, 121)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(8, 8)
 script = ExtResource("1_uvv0t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.555912, 0.52573)
+position = Vector2(-0.819545, 4.50972)
+scale = Vector2(0.545472, 0.494947)
 sprite_frames = SubResource("SpriteFrames_cap77")
 animation = &"Idle_Side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_mc666")

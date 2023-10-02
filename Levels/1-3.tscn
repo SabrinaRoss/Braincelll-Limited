@@ -1,0 +1,162 @@
+[gd_scene load_steps=23 format=3 uid="uid://dh8ykl4f7m5du"]
+
+[ext_resource type="Script" path="res://Levels/Level0/level_0.gd" id="1_t5rfx"]
+[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Objects/lever.tscn" id="2_bs5ke"]
+[ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="3_1f1me"]
+[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Objects/collectable.tscn" id="4_sojup"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Objects/crate.tscn" id="5_6w6es"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Objects/pressure_plate.tscn" id="6_e10su"]
+[ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="7_vjjq7"]
+[ext_resource type="Script" path="res://Objects/Door.gd" id="8_0napo"]
+[ext_resource type="Texture2D" uid="uid://dn47uayasyni6" path="res://Resources/door.png" id="9_j1v3i"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Objects/exit_door.tscn" id="10_kmw0y"]
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="11_mmmc0"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="12_u1i35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dodi"]
+size = Vector2(251, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydx5a"]
+size = Vector2(63, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ads0b"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j7j6l"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wkyta"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o0m45"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70rv8"]
+size = Vector2(20, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gul"]
+atlas = ExtResource("9_j1v3i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ba6y"]
+atlas = ExtResource("9_j1v3i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_018ec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6gul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ba6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Puzzle01" type="Node2D"]
+script = ExtResource("1_t5rfx")
+
+[node name="Lever" parent="." instance=ExtResource("2_bs5ke")]
+position = Vector2(463, 137)
+scale = Vector2(7, 7)
+collision_layer = 27
+collision_mask = 31
+
+[node name="ItemHolder2" parent="Lever" instance=ExtResource("3_1f1me")]
+collectable_distance = 0.0
+collectable_leniance = 1.0
+collectable_forcefulness = 2
+
+[node name="Collectable" parent="." instance=ExtResource("4_sojup")]
+position = Vector2(92, 401)
+collision_layer = 16
+collision_mask = 7
+
+[node name="Crate" parent="." instance=ExtResource("5_6w6es")]
+position = Vector2(649, 295)
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 7
+
+[node name="PressurePlate" parent="." instance=ExtResource("6_e10su")]
+position = Vector2(657, 418)
+scale = Vector2(7, 7)
+collision_layer = 1
+collision_mask = 31
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(114, 306)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("RectangleShape2D_6dodi")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("7_vjjq7")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("7_vjjq7")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_ydx5a")
+
+[node name="Border" type="StaticBody2D" parent="."]
+scale = Vector2(0.625, 0.75)
+
+[node name="bottom" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_ads0b")
+
+[node name="top" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_j7j6l")
+
+[node name="left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_wkyta")
+
+[node name="right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_o0m45")
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(220, 382)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_0napo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_70rv8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+texture_filter = 1
+position = Vector2(-26.5, -8.99999)
+scale = Vector2(7.0625, 9.875)
+sprite_frames = SubResource("SpriteFrames_018ec")
+
+[node name="ExitDoor" parent="." instance=ExtResource("10_kmw0y")]
+position = Vector2(244, 120)
+scale = Vector2(5, 5)
+collision_layer = 11
+
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("11_mmmc0")]
+position = Vector2(116, 132)
+collision_mask = 11
+
+[node name="ItemHolder" parent="Player" instance=ExtResource("3_1f1me")]
+
+[node name="Heart" parent="." instance=ExtResource("12_u1i35")]
