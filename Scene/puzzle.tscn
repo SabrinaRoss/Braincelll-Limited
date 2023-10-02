@@ -1,0 +1,147 @@
+[gd_scene load_steps=20 format=3 uid="uid://di3eepayskhtn"]
+
+[ext_resource type="Script" path="res://Scene/puzzle.gd" id="1_ggf21"]
+[ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Scene/lever.tscn" id="1_lt65s"]
+[ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Scene/collectable.tscn" id="2_re3qf"]
+[ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="3_0jno7"]
+[ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="4_seajq"]
+[ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="5_rj5ip"]
+[ext_resource type="Script" path="res://Scene/Door.gd" id="6_6kft2"]
+[ext_resource type="Texture2D" uid="uid://dn47uayasyni6" path="res://Resources/door.png" id="7_x86wp"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="8_xj4r3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6fh8"]
+size = Vector2(251, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka0kb"]
+size = Vector2(63, 46)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dw2lb"]
+distance = -646.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c0syc"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utlvm"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r8ryo"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3wk7"]
+size = Vector2(20, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gul"]
+atlas = ExtResource("7_x86wp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ba6y"]
+atlas = ExtResource("7_x86wp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_am632"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6gul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ba6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Puzzle" type="Node2D"]
+script = ExtResource("1_ggf21")
+
+[node name="Lever" parent="." instance=ExtResource("1_lt65s")]
+position = Vector2(463, 137)
+scale = Vector2(7, 7)
+collision_layer = 27
+collision_mask = 31
+
+[node name="Collectable" parent="." instance=ExtResource("2_re3qf")]
+position = Vector2(92, 401)
+collision_layer = 16
+collision_mask = 7
+
+[node name="Crate" parent="." instance=ExtResource("3_0jno7")]
+position = Vector2(649, 295)
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 7
+
+[node name="PressurePlate" parent="." instance=ExtResource("4_seajq")]
+position = Vector2(657, 418)
+scale = Vector2(7, 7)
+collision_layer = 1
+collision_mask = 31
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(114, 306)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("RectangleShape2D_h6fh8")
+
+[node name="TopSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_rj5ip")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="SideSprite" type="Sprite2D" parent="Walls"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(98, 143)
+scale = Vector2(3.9375, 4)
+texture = ExtResource("5_rj5ip")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(98.5, 134)
+shape = SubResource("RectangleShape2D_ka0kb")
+
+[node name="Border" type="StaticBody2D" parent="."]
+scale = Vector2(0.625, 0.75)
+
+[node name="bottom" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_dw2lb")
+
+[node name="top" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_c0syc")
+
+[node name="left" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_utlvm")
+
+[node name="right" type="CollisionShape2D" parent="Border"]
+shape = SubResource("WorldBoundaryShape2D_r8ryo")
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(220, 382)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_6kft2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_f3wk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-26.5, -8.99999)
+scale = Vector2(7.0625, 9.875)
+sprite_frames = SubResource("SpriteFrames_am632")
+
+[node name="ExitDoor" parent="." instance=ExtResource("8_xj4r3")]
+position = Vector2(244, 120)
+scale = Vector2(5, 5)
+collision_layer = 11

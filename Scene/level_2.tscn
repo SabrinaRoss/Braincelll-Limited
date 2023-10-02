@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c44oxj5u61m8t"]
+
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="1_jlx8b"]
+[ext_resource type="Script" path="res://Scene/main.gd" id="1_ys62f"]
+[ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="2_qe5rj"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="3_12f0s"]
+[ext_resource type="PackedScene" uid="uid://di3eepayskhtn" path="res://Scene/puzzle.tscn" id="4_vwrm8"]
+[ext_resource type="Script" path="res://Health/Lives_manager.gd" id="6_l55ia"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_ys62f")
+
+[node name="Player" parent="." groups=["Players"] instance=ExtResource("1_jlx8b")]
+position = Vector2(116, 132)
+collision_mask = 11
+
+[node name="ItemHolder" parent="Player" instance=ExtResource("2_qe5rj")]
+
+[node name="Heart" parent="." instance=ExtResource("3_12f0s")]
+
+[node name="Puzzle" parent="." instance=ExtResource("4_vwrm8")]
+
+[node name="Area" type="StaticBody2D" parent="."]
+visible = false
+disable_mode = 1
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="Area"]
+offset_right = 724.0
+offset_bottom = 480.0
+scale = Vector2(0.996579, 1)
+color = Color(0.898039, 0.898039, 0.898039, 0.807843)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="Heart2" parent="." instance=ExtResource("3_12f0s")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("6_l55ia")
