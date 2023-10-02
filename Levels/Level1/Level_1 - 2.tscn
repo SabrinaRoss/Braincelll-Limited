@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d18c05vvkxs33"]
+
+[ext_resource type="PackedScene" uid="uid://c67diadg6svd8" path="res://Levels/Level0/level_0.tscn" id="1_iipr1"]
+[ext_resource type="Script" path="res://Levels/Level1/Level_1 - 2.gd" id="2_ong4a"]
+
+[node name="Puzzle01" instance=ExtResource("1_iipr1")]
+script = ExtResource("2_ong4a")
+
+[node name="Player" parent="." index="8"]
+position = Vector2(98, 312)
+
+[node name="Area" type="StaticBody2D" parent="." index="10"]
+disable_mode = 1
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area" index="0"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://7ngfpmtj8dn"]
+
+[ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="1_cq21r"]
+[ext_resource type="Script" path="res://Levels/Level1/Level1 - 1.gd" id="1_im3by"]
+[ext_resource type="PackedScene" uid="uid://0vdlxgl2ff8r" path="res://Health/heart.tscn" id="2_sjrhc"]
+[ext_resource type="Script" path="res://Health/Lives_manager.gd" id="3_6edt4"]
+[ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="5_63pa3"]
+
+[node name="Level1 - 1" type="Node2D"]
+script = ExtResource("1_im3by")
+
+[node name="ExitDoor" parent="." instance=ExtResource("5_63pa3")]
+light_mask = 15
+visibility_layer = 15
+position = Vector2(137, 120)
+
+[node name="Area" type="StaticBody2D" parent="."]
+disable_mode = 1
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(-8, -8, -8, 488, 728, 488, 728, -8, 0, -8, 0, 0, 721, 0, 720, 480, 0, 480, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("1_cq21r")]
+position = Vector2(352, 445)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Heart" parent="." instance=ExtResource("2_sjrhc")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_6edt4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

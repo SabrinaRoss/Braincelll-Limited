@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu1qs78p5gppt"]
+
+[ext_resource type="PackedScene" uid="uid://cd3107blvidib" path="res://Levels/Level0/Level_0-3.tscn" id="1_jo31t"]
+[ext_resource type="Script" path="res://Levels/Level1/Level_1 - 3.gd" id="2_74rrv"]
+
+[node name="Puzzle01" instance=ExtResource("1_jo31t")]
+script = ExtResource("2_74rrv")
+
+[node name="Player" parent="." index="9"]
+position = Vector2(320, 220)
+
+[node name="ItemHolder" parent="Player" index="5"]
+position = Vector2(0, 4)
