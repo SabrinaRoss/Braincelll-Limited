@@ -18,6 +18,6 @@ func _physics_process(delta):
 		$Heart1.hide()
 		#get_tree().paused = true
 		
-		
+		BulletNum.num_bullet = 5
 		get_tree().change_scene_to_file("res://Scene/game_over_screen/game_over_screen.tscn")
 		#get_tree().reload_current_scene()
