@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://brqrpmqc8udo8"]
+
+[ext_resource type="Script" path="res://Scene/PlayerGoblin.gd" id="1_54dcs"]
+[ext_resource type="Texture2D" uid="uid://c41dlkuhngtej" path="res://Resources/gobbo.png" id="2_6qk4n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he64g"]
+radius = 43.0
+height = 278.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66cdu"]
+atlas = ExtResource("2_6qk4n")
+region = Rect2(0, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwd6l"]
+atlas = ExtResource("2_6qk4n")
+region = Rect2(8, 0, 8, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjtem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66cdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwd6l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerGoblin" type="CharacterBody2D" groups=["Players"]]
+position = Vector2(5, 3)
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+script = ExtResource("1_54dcs")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -3)
+shape = SubResource("CapsuleShape2D_he64g")
+
+[node name="GoblinSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_kjtem")
+speed_scale = 5.0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://tae4edkpunok"]
+
+[ext_resource type="Script" path="res://Bullet/Bullet.gd" id="1_85cf6"]
+[ext_resource type="PackedScene" uid="uid://cttdmqaai5f2v" path="res://Bullet/hazzard_detection.tscn" id="2_wgcgq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tigsk"]
+radius = 6.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_85cf6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_tigsk")
+
+[node name="HazzardDetection2" parent="StaticBody2D" instance=ExtResource("2_wgcgq")]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D/HazzardDetection2"]
+shape = SubResource("CircleShape2D_tigsk")
+
+[connection signal="draw" from="StaticBody2D/CollisionPolygon2D" to="." method="_on_collision_polygon_2d_draw"]
+[connection signal="draw" from="StaticBody2D/HazzardDetection2/CollisionPolygon2D" to="." method="_on_collision_polygon_2d_draw"]
