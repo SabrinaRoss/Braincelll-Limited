@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8duhcqcw1ibl"]
 
-[ext_resource type="Script" path="res://Scene/start_scene.gd" id="1_lsftn"]
-[ext_resource type="FontFile" uid="uid://cy5mnx61qi1f" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_ka5x6"]
+[ext_resource type="Script" path="res://Scene/start_screen/start_scene.gd" id="1_7we3j"]
+[ext_resource type="FontFile" uid="uid://cy5mnx61qi1f" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_ijt4x"]
 
 [node name="start_scene" type="CanvasLayer"]
-script = ExtResource("1_lsftn")
+script = ExtResource("1_7we3j")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 280)
@@ -24,7 +24,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_ka5x6")
+theme_override_fonts/font = ExtResource("2_ijt4x")
 theme_override_font_sizes/font_size = 69
 text = "BRAINCELLS
 LIMITED"
@@ -40,7 +40,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("3_ka5x6")
+theme_override_fonts/font = ExtResource("2_ijt4x")
 theme_override_font_sizes/font_size = 40
 text = "Start"
 

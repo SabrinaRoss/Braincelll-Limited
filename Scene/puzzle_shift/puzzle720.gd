@@ -3,10 +3,11 @@ extends Area2D
 var tiles = []
 var solved = []
 var mouse = false
-var xc = 300 + 61
-var yc = 300 + 39
+var xc = 100
+var yc = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("AY AY CAPTAINNNN")
 	start_game()
 
 func start_game():
@@ -33,7 +34,7 @@ func _process(delta):
 func shuffle_tiles():
 	var previous = 99
 	var previous1 = 98
-	for i in range(0, 1000):
+	for i in range(0, 500):
 		var tile = randi() % 9
 		if tiles[tile] != $Tile9 and tile != previous and tile != previous1:
 			var rows = int(tiles[tile].position.y / yc)

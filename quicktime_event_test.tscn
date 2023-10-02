@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://brb5mrvcgi5pc" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_l5eqf"]
 [ext_resource type="Script" path="res://quicktime_event_test.gd" id="1_nw6ge"]
-[ext_resource type="PackedScene" uid="uid://cj6gq6ytvciuk" path="res://Scene/puzzle_shift/puzzle_shift.tscn" id="2_a8cvo"]
+[ext_resource type="PackedScene" uid="uid://e8bdfns14ai0" path="res://Scene/puzzle_shift/puzzle_shift.tscn" id="2_a8cvo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
