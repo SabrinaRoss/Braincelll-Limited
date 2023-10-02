@@ -1,8 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://3tlvwwr2oxnn"]
+[gd_scene load_steps=4 format=3 uid="uid://cg1slwiqxixle"]
 
 [ext_resource type="FontFile" uid="uid://brb5mrvcgi5pc" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_l5eqf"]
-[ext_resource type="Script" path="res://quicktime_event_test.gd" id="1_nw6ge"]
-[ext_resource type="PackedScene" uid="uid://e8bdfns14ai0" path="res://Scene/puzzle_shift/puzzle_shift.tscn" id="2_a8cvo"]
+[ext_resource type="PackedScene" uid="uid://cvm0gj3ingxrw" path="res://Scene/puzzle_shift/puzzle_shift.tscn" id="2_a8cvo"]
+
+[sub_resource type="GDScript" id="GDScript_hmgud"]
+script/source = "extends Node2D
+
+@onready var first_label = get_node(\"../../../MarginContainer/Label\")
+
+
+var is_qte_active = false
+var qte_key = KEY_A
+
+var qte_key_list = [
+	[KEY_A],
+	[KEY_B, KEY_C],
+	[KEY_D, KEY_E, KEY_F]
+]
+
+func _ready():
+	print(\"ready\")
+	print(\"===========\")
+	print(first_label)
+	print(first_label.text)
+	print(\"============\")
+	$Timer.start() # Get ready to mash the buttonsssssss
+
+	
+
+	_qte_start()
+	
+
+func _process(delta):
+	first_label.text = \"Time: \" + str(snapped($Timer.get_time_left(), 0.01))
+	
+
+func _qte_start():
+	print(\"qte_start\")
+	is_qte_active = true
+	
+	
+func _input(event):
+	if is_qte_active:
+		if event is InputEventKey and event.pressed:
+			if event.pressed and event.keycode == qte_key:
+				_qte_success()
+			else:
+				_qte_fail()
+	
+	
+# Connected from Timer
+func _qte_timeout():
+	print(\"Your time's up buckaroo\")
+	_reset_timer()
+
+
+	
+	
+func _qte_fail():
+	print(\"Puzzle fail\")
+	_reset_timer()
+	
+func _qte_success():
+	print(\"Event success\")
+	_reset_timer()
+	
+func _reset_timer():
+	$Timer.paused = true # Figure out if pausing timer is possible instead of stopping it... stopping it resets it to 0
+	print(\"timer resets after QTE event\")
+
+
+
+
+"
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -38,7 +108,7 @@ layout_mode = 2
 
 [node name="Quicktime Event Test" type="Node2D" parent="MarginContainer/MarginContainer"]
 position = Vector2(33, 10)
-script = ExtResource("1_nw6ge")
+script = SubResource("GDScript_hmgud")
 
 [node name="Timer" type="Timer" parent="MarginContainer/MarginContainer/Quicktime Event Test"]
 wait_time = 20.0
