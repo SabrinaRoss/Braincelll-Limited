@@ -1,13 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c67diadg6svd8"]
+[gd_scene load_steps=23 format=3 uid="uid://c67diadg6svd8"]
 
 [ext_resource type="Script" path="res://Scene/level_0.gd" id="1_8g2dr"]
 [ext_resource type="PackedScene" uid="uid://nxq0nqo6wenl" path="res://Scene/lever.tscn" id="3_rp0ys"]
 [ext_resource type="PackedScene" uid="uid://bfjw86td62c56" path="res://Scene/collectable.tscn" id="4_dmtwc"]
 [ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="5_vtmjo"]
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="6_d3un0"]
-[ext_resource type="Texture2D" uid="uid://bhsiripn4x0vf" path="res://Resources/wall.aseprite" id="7_2eluc"]
+[ext_resource type="Texture2D" uid="uid://cuflnj7d4x60" path="res://Resources/wall.png" id="7_vbgci"]
 [ext_resource type="Script" path="res://Scene/Door.gd" id="9_6pvdq"]
-[ext_resource type="SpriteFrames" uid="uid://l1afpisfo5gp" path="res://Resources/door.aseprite" id="10_0iw6l"]
+[ext_resource type="Texture2D" uid="uid://dn47uayasyni6" path="res://Resources/door.png" id="9_dqp0r"]
 [ext_resource type="PackedScene" uid="uid://b3rbtn8vtcgbi" path="res://Player/Player.tscn" id="11_bejhi"]
 [ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="11_pqvdn"]
 [ext_resource type="PackedScene" uid="uid://ccydqh08yjxod" path="res://Scene/item_holder.tscn" id="12_l5woi"]
@@ -34,6 +34,28 @@ distance = -1154.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jf4oa"]
 size = Vector2(20, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6gul"]
+atlas = ExtResource("9_dqp0r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ba6y"]
+atlas = ExtResource("9_dqp0r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c5wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6gul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ba6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Puzzle01" type="Node2D"]
 script = ExtResource("1_8g2dr")
@@ -77,7 +99,7 @@ shape = SubResource("RectangleShape2D_dqi3w")
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(3.9375, 4)
-texture = ExtResource("7_2eluc")
+texture = ExtResource("7_vbgci")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 16)
 
@@ -86,7 +108,7 @@ texture_filter = 1
 texture_repeat = 2
 position = Vector2(98, 143)
 scale = Vector2(3.9375, 4)
-texture = ExtResource("7_2eluc")
+texture = ExtResource("7_vbgci")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
@@ -121,9 +143,10 @@ position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_jf4oa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door"]
+texture_filter = 1
 position = Vector2(-26.5, -8.99999)
 scale = Vector2(7.0625, 9.875)
-sprite_frames = ExtResource("10_0iw6l")
+sprite_frames = SubResource("SpriteFrames_8c5wx")
 
 [node name="ExitDoor" parent="." instance=ExtResource("11_pqvdn")]
 position = Vector2(244, 120)

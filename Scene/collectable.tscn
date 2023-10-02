@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfjw86td62c56"]
+[gd_scene load_steps=9 format=3 uid="uid://bfjw86td62c56"]
 
 [ext_resource type="Script" path="res://Scene/Collectable.gd" id="1_5kegs"]
-[ext_resource type="SpriteFrames" uid="uid://dxwfmu8sut8bp" path="res://Resources/wrench.aseprite" id="2_y4nxm"]
+[ext_resource type="Texture2D" uid="uid://26kuia3pkqsg" path="res://Resources/wrench.png" id="2_5qq1l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4isbo"]
 size = Vector2(8.99999, 8.99999)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv4lo"]
+atlas = ExtResource("2_5qq1l")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qelm3"]
+atlas = ExtResource("2_5qq1l")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip4hq"]
+atlas = ExtResource("2_5qq1l")
+region = Rect2(0, 7, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_714jm"]
+atlas = ExtResource("2_5qq1l")
+region = Rect2(7, 7, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdn3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv4lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qelm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip4hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_714jm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Collectable" type="RigidBody2D"]
 position = Vector2(498, 458)
@@ -23,6 +59,6 @@ shape = SubResource("RectangleShape2D_4isbo")
 texture_filter = 1
 position = Vector2(-2, 2)
 scale = Vector2(5, 5)
-sprite_frames = ExtResource("2_y4nxm")
+sprite_frames = SubResource("SpriteFrames_cdn3v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

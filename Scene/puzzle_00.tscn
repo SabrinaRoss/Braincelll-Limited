@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://brqrpmqc8udo8" path="res://Scene/player_goblin.tscn" id="1_imp06"]
 [ext_resource type="PackedScene" uid="uid://bvvagbbxtv4pk" path="res://Scene/crate.tscn" id="2_ggrkt"]
 [ext_resource type="PackedScene" uid="uid://bmtq6akmju8la" path="res://Scene/pressure_plate.tscn" id="3_krdy4"]
-[ext_resource type="Texture2D" uid="uid://bwmyh67l50ufq" path="res://Resources/check_mark.png" id="5_yoioh"]
+[ext_resource type="Texture2D" uid="uid://caegl1du3xkvu" path="res://Resources/check_mark.png" id="5_yoioh"]
 [ext_resource type="PackedScene" uid="uid://m4rkt6m8u11q" path="res://Scene/exit_door.tscn" id="6_fl1wc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_afnid"]
