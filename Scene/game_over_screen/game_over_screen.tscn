@@ -44,6 +44,7 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 8
 alignment = 1
 
@@ -55,4 +56,19 @@ theme_override_fonts/font = ExtResource("1_v80s3")
 theme_override_font_sizes/font_size = 40
 text = "Restart"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_v80s3")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MainMenu" to="." method="_on_main_menu_pressed"]
