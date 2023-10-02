@@ -23,7 +23,6 @@ func _process(delta):
 		$Timer.start()
 		print("Reset timer")
 		
-		
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
 		get_tree().change_scene_to_file("res://Levels/2-2.tscn")
 		
