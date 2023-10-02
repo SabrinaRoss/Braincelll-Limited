@@ -10,7 +10,7 @@ func _ready():
 func start_game():
 	tiles = [$Tile1, $Tile2, $Tile3, $Tile4, $Tile5, $Tile6, $Tile7, $Tile8, $Tile9]
 	solved = tiles.duplicate()
-	# shuffle_tiles()
+	shuffle_tiles()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse:
@@ -62,11 +62,13 @@ func check_neighbors(rows, cols):
 		if cols < 2:
 			new_pos.x += 300
 			empty = find_empty(new_pos, pos)
-			new_pos.y -= 300
+			new_pos.x -= 300
 		if cols > 0:
 			new_pos.x -= 300
 			empty = find_empty(new_pos, pos)
 			new_pos.x += 300
+		
+		done = true
 			
 # Finding the empty position in between two tiles
 func find_empty(posit, pos):
@@ -85,7 +87,7 @@ func swap_tiles(tile_src, tile_dst):
 	tiles[tile_src].position = tiles[tile_dst].position
 	tiles[tile_dst].position = temp_pos
 
-	var temp_tile = tiles[tile_dst]
+	var temp_tile = tiles[tile_src]
 	tiles[tile_src] = tiles[tile_dst]
 	tiles[tile_dst] = temp_tile
 	
