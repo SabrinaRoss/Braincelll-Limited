@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var next_scene = "res://Scene/puzzle_01.tscn"
+@export var next_scene = "res://Scene/level_1.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,5 +24,5 @@ func _process(delta):
 			any_player = true
 			break
 	if $ExitDoor.open && any_player:
-		#print("Todo: change scene")
+		print("Level complete: change scene")
 		get_tree().change_scene_to_file(next_scene)

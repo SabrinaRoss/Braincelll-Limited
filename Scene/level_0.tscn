@@ -16,4 +16,3 @@ collision_mask = 11
 [node name="Heart" parent="." instance=ExtResource("13_r70jb")]
 
 [node name="Puzzle" parent="." instance=ExtResource("5_l34ru")]
-next_scene = "res://Scene/level_1.tscn"
