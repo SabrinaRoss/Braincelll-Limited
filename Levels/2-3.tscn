@@ -59,6 +59,7 @@ animations = [{
 
 [node name="Puzzle01" type="Node2D"]
 script = ExtResource("1_10req")
+next_level = "res://Level/2-4.tscn"
 
 [node name="Lever" parent="." instance=ExtResource("2_f5grd")]
 position = Vector2(418, 189)

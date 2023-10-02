@@ -3,6 +3,7 @@ extends Node
 
 var bullet = preload("res://Bullet/Bullet.tscn")
 var remove_track = 1
+@export var next_level = "res://Level/3-1.tscn"
 
 func _ready(): 
 	var bnum = BulletNum.num_bullet

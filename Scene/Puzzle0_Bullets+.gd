@@ -3,6 +3,7 @@ extends Node
 
 var bullet = preload("res://Bullet/Bullet.tscn")
 var remove_track = 1
+@export var next_level = "res://Level/2-3.tscn"
 
 func _ready(): 
 	var bnum = BulletNum.num_bullet
@@ -24,7 +25,7 @@ func _process(delta):
 		$ExitDoor.open = false
 	
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
-		get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")
+		get_tree().change_scene_to_file(next_level)
 	if LivesManager.lives > 0 and LivesManager.lives_counter == 0:
 		remove_track += 1
 			
