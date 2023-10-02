@@ -19,12 +19,14 @@ func _process(delta):
 		_removal()
 		LivesManager.lives_counter = 1
 		_ready()
-		$Timer.start()
 		$Timer.stop()
-			
+		$Timer.start()
+		print("Reset timer")
+		
+		
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
-			get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")
-			
+		get_tree().change_scene_to_file("res://Levels/2-2.tscn")
+		
 func _removal():
 	var instances_to_remove = 2 * remove_track
 	var children_count = get_child_count()
@@ -37,7 +39,7 @@ func _removal():
 
 
 func _on_timer_timeout():
-	if ($Timer.is_stopped()): #or something
-		print("Hello")
-		$ExitDoor.open = true
+	#if ($Timer.is_stopped()): #or something
+	#	print("Hello")
+	$ExitDoor.open = true
 	
