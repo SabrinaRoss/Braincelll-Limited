@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbmey8ix11wlq"]
+
+[ext_resource type="Script" path="res://Scene/popup/PopUp.gd" id="1_hqsjc"]
+[ext_resource type="PackedScene" uid="uid://c7gdycrbvprom" path="res://Scene/popup_container/popup_container.tscn" id="2_y2icl"]
+
+[node name="PopUp" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_hqsjc")
+
+[node name="popup_container" parent="." instance=ExtResource("2_y2icl")]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
