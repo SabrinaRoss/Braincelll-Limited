@@ -15,45 +15,61 @@
 size = Vector2(300, 300)
 
 [node name="puzzle720" type="Area2D"]
+z_index = 99
+collision_layer = 2147483649
+collision_mask = 2147483649
 script = ExtResource("1_cdaxu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 99
 position = Vector2(150, 150)
 scale = Vector2(1.00193, 1)
 shape = SubResource("RectangleShape2D_i1lwe")
 
 [node name="Tile1" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(50, 50)
 texture = ExtResource("1_m0c70")
 
 [node name="Tile2" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(150, 50)
 texture = ExtResource("2_cx54v")
 
 [node name="Tile3" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(250, 50)
 texture = ExtResource("3_x7dhs")
 
 [node name="Tile4" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(50, 150)
 texture = ExtResource("4_sycw2")
 
 [node name="Tile5" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(150, 150)
 texture = ExtResource("5_daxbh")
 
 [node name="Tile6" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(250, 150)
 texture = ExtResource("6_ny45e")
 
 [node name="Tile7" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(50, 250)
 texture = ExtResource("7_anret")
 
 [node name="Tile8" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(150, 250)
 texture = ExtResource("8_jey0b")
 
 [node name="Tile9" type="Sprite2D" parent="."]
+z_index = 99
 position = Vector2(250, 250)
 texture = ExtResource("9_h2rmw")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

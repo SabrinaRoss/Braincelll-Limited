@@ -1,7 +1,7 @@
 extends Area2D
 
 
-
+var mouse_over = false
 var tiles = []
 var solved = []
 var mouse = false
@@ -18,7 +18,7 @@ func start_game():
 	shuffle_tiles()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and mouse and mouse_over:
 		var mouse_copy = mouse.duplicate()
 		#print(mouse.position)
 		mouse = false
@@ -102,3 +102,15 @@ func swap_tiles(tile_src, tile_dst):
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		mouse = event
+
+
+func _on_mouse_entered():
+	mouse_over = true
+	print("Hey it's me!")
+	
+
+
+
+func _on_mouse_exited():
+	mouse_over = false
+	print("Goodby mousey")

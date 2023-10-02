@@ -16,3 +16,13 @@ func _on_timer_timeout():
 	
 	
 
+
+
+func _on_popup_mouse_entered():
+	print("Yes this mouse has enter the scene")
+	
+
+
+
+func _on_popup_mouse_exited():
+	print("This mouse has left the business")

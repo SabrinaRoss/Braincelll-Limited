@@ -7,17 +7,16 @@
 
 [node name="popup_container" type="CanvasLayer"]
 
+[node name="puzzle720" parent="." instance=ExtResource("1_hg27x")]
+script = ExtResource("2_lslv8")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(700, 480)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -240.0
-offset_right = 360.0
-offset_bottom = 240.0
+custom_minimum_size = Vector2(700, 400)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -20.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -31,9 +30,6 @@ theme_override_fonts/font = ExtResource("2_67e8m")
 theme_override_font_sizes/font_size = 35
 text = "Reorganize 
 in alphabetic order"
-
-[node name="puzzle720" parent="MarginContainer" instance=ExtResource("1_hg27x")]
-script = ExtResource("2_lslv8")
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2

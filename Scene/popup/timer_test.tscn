@@ -29,6 +29,10 @@ func _on_timer_timeout():
 	
 	
 
+
+
+func _on_timer_2_timeout():
+	pass # Replace with function body.
 "
 
 [node name="timer_test" type="Node2D"]
@@ -39,7 +43,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Popup" type="Popup" parent="."]
-initial_position = 5
+initial_position = 4
 size = Vector2i(1920, 1080)
 transparent = true
 mouse_passthrough = true
@@ -50,6 +54,8 @@ script = ExtResource("2_ouj2r")
 [node name="popup_timer" type="Timer" parent="Popup"]
 wait_time = 5.0
 one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="visibility_changed" from="Popup" to="Popup" method="_on_visibility_changed"]

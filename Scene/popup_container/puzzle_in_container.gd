@@ -9,7 +9,7 @@ var xc = 100
 var yc = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("AY AY CAPTAINNNN")
+	#print("AY AY CAPTAINNNN")
 	start_game()
 
 func start_game():
@@ -24,7 +24,7 @@ func _process(delta):
 		mouse = false
 		var rows = int(mouse_copy.position.y/yc)
 		var cols = int(mouse_copy.position.x/xc)
-		print(rows, ", ", cols)
+		#print(rows, ", ", cols)
 		
 		# Uncertain what the following means
 		var pos= rows * 3 + cols
