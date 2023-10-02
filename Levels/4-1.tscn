@@ -15,6 +15,7 @@ size = Vector2(63, 46)
 
 [node name="4-1" type="Node2D"]
 script = ExtResource("1_35fb7")
+next_level = "res://Levels/4-2.tscn"
 
 [node name="Area" type="StaticBody2D" parent="."]
 visible = false

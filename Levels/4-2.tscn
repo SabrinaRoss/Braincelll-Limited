@@ -59,6 +59,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_louhy")
+next_level = "res://Levels/Thanks 4 Playing.tscn"
 
 [node name="Lever" parent="." instance=ExtResource("2_3j1ks")]
 position = Vector2(641, 397)

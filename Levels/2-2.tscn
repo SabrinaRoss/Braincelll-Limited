@@ -23,6 +23,7 @@ distance = -1154.0
 
 [node name="Puzzle01" type="Node2D"]
 script = ExtResource("1_64rvc")
+next_level = "res://Levels/2-3.tscn"
 
 [node name="Crate" parent="." instance=ExtResource("2_4vuci")]
 position = Vector2(379, 375)

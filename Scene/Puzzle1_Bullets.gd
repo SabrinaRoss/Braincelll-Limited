@@ -28,7 +28,7 @@ func _process(delta):
 		$ExitDoor.open = false
 
 	if $ExitDoor.open && $ExitDoor.get_overlapping_bodies().find($Player) != -1:
-		get_tree().change_scene_to_file("res://Scene/puzzle_01.tscn")
+		get_tree().change_scene_to_file(next_level)
 		if LivesManager.lives > 0 and LivesManager.lives_counter == 0:
 			remove_track += 1
 			
