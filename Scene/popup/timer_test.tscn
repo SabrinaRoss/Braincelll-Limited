@@ -41,6 +41,7 @@ one_shot = true
 [node name="Popup" type="Popup" parent="."]
 initial_position = 5
 size = Vector2i(1920, 1080)
+transparent = true
 mouse_passthrough = true
 script = ExtResource("2_ouj2r")
 

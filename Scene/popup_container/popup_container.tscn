@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7gdycrbvprom"]
+
+[ext_resource type="PackedScene" uid="uid://f0ve6uxyv01m" path="res://Scene/puzzle_shift/puzzle720.tscn" id="1_hg27x"]
+[ext_resource type="FontFile" uid="uid://brb5mrvcgi5pc" path="res://Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_67e8m"]
+[ext_resource type="Script" path="res://Scene/popup_container/puzzle_in_container.gd" id="2_lslv8"]
+[ext_resource type="Script" path="res://Scene/popup_container/QTE.gd" id="3_bfoe4"]
+
+[node name="popup_container" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(700, 480)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -240.0
+offset_right = 360.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Instruction" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_67e8m")
+theme_override_font_sizes/font_size = 35
+text = "Reorganize 
+in alphabetic order"
+
+[node name="puzzle720" parent="MarginContainer" instance=ExtResource("1_hg27x")]
+script = ExtResource("2_lslv8")
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_67e8m")
+theme_override_font_sizes/font_size = 40
+text = "Time:"
+
+[node name="QTE" type="Node2D" parent="MarginContainer"]
+script = ExtResource("3_bfoe4")
+
+[node name="Timer" type="Timer" parent="MarginContainer/QTE"]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="MarginContainer/QTE/Timer" to="MarginContainer/QTE" method="_qte_timeout"]

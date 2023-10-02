@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://cbmey8ix11wlq"]
+[gd_scene load_steps=2 format=3 uid="uid://cbmey8ix11wlq"]
+
+[ext_resource type="Script" path="res://Scene/popup/PopUp.gd" id="1_hqsjc"]
 
 [node name="PopUp" type="Node2D"]
+script = ExtResource("1_hqsjc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="Popup" type="Popup" parent="."]
+size = Vector2i(300, 400)
+transparent = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
