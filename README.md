@@ -11,5 +11,5 @@ Move the player using WASD or arrow keys.
 
 ## Credits
 - James Tang (https://github.com/ganmany5288)
-- Rowan Althorp (https://github.com/Huskui)
+- Rowan Althorp (https://github.com/SabrinaRoss)
 - Kieran Smith (https://github.com/Saskapult)
